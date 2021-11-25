@@ -15,7 +15,9 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
-        primaryColor: Colors.white,
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.white
+      ),
         primaryIconTheme: IconThemeData(color: MyColors.colorIcon),
         textSelectionTheme:
             TextSelectionThemeData(cursorColor: MyColors.colorIcon),
@@ -26,6 +28,7 @@ class MovieSearchDelegate extends SearchDelegate {
                 fontWeight: FontWeight.w100,
                 fontSize: 23)),
         hintColor: Colors.black38,
+        primaryColor: Colors.white,
         canvasColor: Color.fromRGBO(186, 255, 240, 1));
   }
 
@@ -33,7 +36,7 @@ class MovieSearchDelegate extends SearchDelegate {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        icon: Icon(Icons.clear),
+        icon: Icon(Icons.clear, color: Colors.black,),
         onPressed: () => query = '',
       ),
     ];
@@ -45,7 +48,7 @@ class MovieSearchDelegate extends SearchDelegate {
         onPressed: () {
           close(context, null);
         },
-        icon: Icon(Icons.arrow_back_rounded));
+        icon: Icon(Icons.arrow_back_rounded, color: Colors.black,));
   }
 
   @override
@@ -106,7 +109,6 @@ class _MovieItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    movie.heroId = 'search-${movie.id}';
 
     return Stack(
       children: [
@@ -123,15 +125,12 @@ class _MovieItems extends StatelessWidget {
             // ])
           ),
           child: ListTile(
-            leading: Hero(
-              tag: movie.heroId!,
-              child: FadeInImage(
-                placeholder: AssetImage('assets/loading.gif'),
-                image: NetworkImage(movie.fullBackdropPath),
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
-              ),
+            leading: FadeInImage(
+              placeholder: AssetImage('assets/movieLoad.gif'),
+              image: NetworkImage(movie.fullBackdropPath),
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
             ),
             title: Text(
               movie.title,
@@ -143,6 +142,7 @@ class _MovieItems extends StatelessWidget {
               movie.overview,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontFamily: 'AndadaPro'),
             ),
             onTap: () =>
                 Navigator.pushNamed(context, 'details', arguments: movie),

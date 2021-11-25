@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:peliculas_app/models/movie.dart';
 import 'package:peliculas_app/screens/screens.dart';
 
@@ -20,6 +19,7 @@ class MovieSlider extends StatefulWidget {
 }
 
 class _MovieSliderState extends State<MovieSlider> {
+
   final ScrollController scrollController = new ScrollController();
 
   @override
@@ -42,10 +42,11 @@ class _MovieSliderState extends State<MovieSlider> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 255,
+      height: 270,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           if (this.widget.title != null)
             Padding(
               padding: EdgeInsets.only(left: 10, bottom: 10, top: 5),
@@ -54,8 +55,9 @@ class _MovieSliderState extends State<MovieSlider> {
                   child: Text(
                     widget.title!,
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'CarterOne',
                         color: Colors.black87),
                   )),
             ),
@@ -79,13 +81,10 @@ class MovieHorizontal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    timeDilation = 1.5;
-
-    movie.heroId = 'Slider-${movie.id}';
 
     return Container(
       width: 110,
-      height: 150,
+      height: 160,
       margin: EdgeInsets.only(bottom: 5, left: 10, right: 10),
       child: Column(
         children: [
@@ -97,15 +96,12 @@ class MovieHorizontal extends StatelessWidget {
                 topLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10),
               ),
-              child: Hero(
-                tag: movie.heroId!,
-                child: FadeInImage(
-                  placeholder: AssetImage('assets/loading.gif'),
-                  image: NetworkImage(movie.fullPosterImg),
-                  fit: BoxFit.cover,
-                  width: 130,
-                  height: 160,
-                ),
+              child: FadeInImage(
+                placeholder: AssetImage('assets/movieLoad.gif'),
+                image: NetworkImage(movie.fullPosterImg),
+                fit: BoxFit.cover,
+                width: 130,
+                height: 160,
               ),
             ),
           ),
@@ -117,8 +113,20 @@ class MovieHorizontal extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
-            style: TextStyle(color: MyColors.colorText, fontSize: 12),
+            style: TextStyle(
+                color: MyColors.colorText,
+                fontSize: 12,
+                fontFamily: 'AndadaPro'),
+          ),
+          Text(
+            "Calificacion:  ${movie.voteAverage}",
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: Colors.cyan, fontSize: 11, fontFamily: 'CarterOne'),
           )
+
         ],
       ),
     );

@@ -1,8 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.peliculas_app">
+    package="com.alejandrohomez.flutterpeliculas">
+<uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="peliculas_app"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Películas"
+        android:icon="@mipmap/launcher_icon">
+         <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9020600069354260~9266249491"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "314577050603",
+    "firebase_url": "https://flutter-varios-8d06b-default-rtdb.firebaseio.com",
+    "project_id": "flutter-varios-8d06b",
+    "storage_bucket": "flutter-varios-8d06b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314577050603:android:53151ae5e4500eb164d7ae",
+        "android_client_info": {
+          "package_name": "com.alejandrohomez.productos_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314577050603-khkga0tksivlgsv8el65c7ld72n9agnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF4twmIc6-AEqVMN-GAr8ZAGtBdIZuo-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314577050603-khkga0tksivlgsv8el65c7ld72n9agnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -30,7 +30,7 @@ class CustomNavigatorBar extends StatelessWidget {
                       splashColor: Colors.grey.shade200,
                       highlightElevation: 12,
                       mini: false,
-                      onPressed: () => Navigator.pushNamed(context, 'home'),
+                      onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil('inicio', (Route<dynamic> route) => false),
                       child: Icon(
                         Icons.home,
                         size: 35,
@@ -48,9 +48,9 @@ class CustomNavigatorBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.pushNamed(context, 'trailers'),
                           icon: Icon(
-                            Icons.play_arrow_sharp,
+                            Icons.local_movies,
                             size: 35,
                             color: Colors.white,
                           )),
@@ -58,9 +58,9 @@ class CustomNavigatorBar extends StatelessWidget {
                         width: 10,
                       ),
                       IconButton(
-                          onPressed: () {},
-                          icon:
-                              Icon(Icons.movie, size: 35, color: Colors.white)),
+                      onPressed: () => Navigator.pushNamed(context, 'series'),
+                        icon: Icon(Icons.movie, size: 35, color: Colors.white),
+                      ),
                     ],
                   ),
                 )

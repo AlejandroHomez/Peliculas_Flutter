@@ -5,22 +5,22 @@
 import 'dart:convert';
 
 class GenreResponse {
-  GenreResponse({
+    GenreResponse({
     required this.genres,
   });
 
-  List<Genre> genres;
+    List<Genre> genres;
 
-  factory GenreResponse.fromJson(String str) =>
+    factory GenreResponse.fromJson(String str) =>
       GenreResponse.fromMap(json.decode(str));
 
-  factory GenreResponse.fromMap(Map<String, dynamic> json) => GenreResponse(
+    factory GenreResponse.fromMap(Map<String, dynamic> json) => GenreResponse(
         genres: List<Genre>.from(json["genres"].map((x) => Genre.fromMap(x))),
-      );
+    );
 }
 
 class Genre {
-  Genre({
+    Genre({
     required this.id,
     required this.name,
   });
@@ -28,10 +28,10 @@ class Genre {
   int id;
   String name;
 
-  factory Genre.fromJson(String str) => Genre.fromMap(json.decode(str));
+    factory Genre.fromJson(String str) => Genre.fromMap(json.decode(str));
 
-  factory Genre.fromMap(Map<String, dynamic> json) => Genre(
+    factory Genre.fromMap(Map<String, dynamic> json) => Genre(
         id: json["id"],
         name: json["name"],
-      );
+    );
 }

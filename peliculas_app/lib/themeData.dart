@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
     return ThemeData(
       
         // brightness: Brightness.dark,
-
+        primaryColor: Colors.red,
         appBarTheme: AppBarTheme(
           color: Colors.transparent,
           elevation: 0,
