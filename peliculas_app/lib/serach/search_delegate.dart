@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:peliculas_app/models/models.dart';
 import 'package:peliculas_app/providers/movies_provider.dart';
-import 'package:peliculas_app/screens/screens.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
+
 import 'package:provider/provider.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
@@ -15,9 +15,7 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.white
-      ),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.white),
         primaryIconTheme: IconThemeData(color: MyColors.colorIcon),
         textSelectionTheme:
             TextSelectionThemeData(cursorColor: MyColors.colorIcon),
@@ -36,7 +34,10 @@ class MovieSearchDelegate extends SearchDelegate {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        icon: Icon(Icons.clear, color: Colors.black,),
+        icon: Icon(
+          Icons.clear,
+          color: Colors.black,
+        ),
         onPressed: () => query = '',
       ),
     ];
@@ -48,7 +49,10 @@ class MovieSearchDelegate extends SearchDelegate {
         onPressed: () {
           close(context, null);
         },
-        icon: Icon(Icons.arrow_back_rounded, color: Colors.black,));
+        icon: Icon(
+          Icons.arrow_back_rounded,
+          color: Colors.black,
+        ));
   }
 
   @override
@@ -109,7 +113,6 @@ class _MovieItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
         Container(

@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:peliculas_app/models/video_movie_response.dart';
-import 'package:peliculas_app/screens/screens.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
+
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoScreen extends StatefulWidget {
@@ -15,24 +15,22 @@ class _VideoScreen extends State<VideoScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     final Video video = ModalRoute.of(context)!.settings.arguments as Video;
 
     _controller = YoutubePlayerController(
-
       initialVideoId: video.key!,
       flags: const YoutubePlayerFlags(
-        mute: false,
-        autoPlay: true,
-        disableDragSeek: false,
-        loop: false,
-        isLive: false,
-        forceHD: false,
-        enableCaption: true,
-        useHybridComposition: true
-        // controlsVisibleAtStart: true
+          mute: false,
+          autoPlay: true,
+          disableDragSeek: false,
+          loop: false,
+          isLive: false,
+          forceHD: false,
+          enableCaption: true,
+          useHybridComposition: true
+          // controlsVisibleAtStart: true
 
-        ),
+          ),
     );
 
     final orientation = MediaQuery.of(context).orientation;
@@ -41,7 +39,6 @@ class _VideoScreen extends State<VideoScreen> {
         backgroundColor: Colors.black,
         body: Stack(
           children: [
-
             Center(
               child: YoutubePlayer(
                 progressColors: ProgressBarColors(
@@ -49,7 +46,6 @@ class _VideoScreen extends State<VideoScreen> {
                   playedColor: Colors.red,
                 ),
                 progressIndicatorColor: Colors.red,
-
                 controller: _controller,
                 actionsPadding: const EdgeInsets.only(left: 16.0),
                 bottomActions: [
@@ -62,16 +58,14 @@ class _VideoScreen extends State<VideoScreen> {
                 ],
               ),
             ),
-
-             orientation != Orientation.landscape 
-             
-             ?Positioned(
-              top: 50,
-              left: 0,
-              child: IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.reply_sharp, color: Colors.white70)))
-              : Container()
-
-            
+            orientation != Orientation.landscape
+                ? Positioned(
+                    top: 50,
+                    left: 0,
+                    child: IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: Icon(Icons.reply_sharp, color: Colors.white70)))
+                : Container()
           ],
         ));
   }

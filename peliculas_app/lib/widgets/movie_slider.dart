@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peliculas_app/models/movie.dart';
-import 'package:peliculas_app/screens/screens.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
 
 class MovieSlider extends StatefulWidget {
   final List<Movie> movies;
@@ -19,7 +19,6 @@ class MovieSlider extends StatefulWidget {
 }
 
 class _MovieSliderState extends State<MovieSlider> {
-
   final ScrollController scrollController = new ScrollController();
 
   @override
@@ -46,7 +45,6 @@ class _MovieSliderState extends State<MovieSlider> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           if (this.widget.title != null)
             Padding(
               padding: EdgeInsets.only(left: 10, bottom: 10, top: 5),
@@ -81,7 +79,6 @@ class MovieHorizontal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       width: 110,
       height: 160,
@@ -126,7 +123,6 @@ class MovieHorizontal extends StatelessWidget {
             style: TextStyle(
                 color: Colors.cyan, fontSize: 11, fontFamily: 'CarterOne'),
           )
-
         ],
       ),
     );

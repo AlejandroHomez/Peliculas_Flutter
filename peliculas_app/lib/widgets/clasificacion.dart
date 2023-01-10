@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:peliculas_app/models/genre_response.dart';
 import 'package:peliculas_app/providers/movies_provider.dart';
-import 'package:peliculas_app/widgets/myColors.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
+
 import 'package:provider/provider.dart';
 
 class ClasPeliculas extends StatelessWidget {
-  
   final List<int> genreMovie;
 
   const ClasPeliculas(this.genreMovie);
@@ -16,12 +16,12 @@ class ClasPeliculas extends StatelessWidget {
     int lengthGenre = genreMovie.length;
     int primerDato = genreMovie[0];
     return Container(
-        padding: EdgeInsets.symmetric( vertical: 6) ,
+        padding: EdgeInsets.symmetric(vertical: 6),
         width: double.infinity,
         height: 40,
         // color: Colors.red,
         child: ListView.builder(
-          physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: lengthGenre,
             itemBuilder: (_, int index) =>
@@ -30,7 +30,6 @@ class ClasPeliculas extends StatelessWidget {
 }
 
 class CrearCategorias extends StatelessWidget {
-
   final int genreID;
   final int lengthGenre;
   final int primerDato;
@@ -60,7 +59,6 @@ class CrearCategorias extends StatelessWidget {
               return Row(
                 children: [
                   Container(child: _iconoo(context, genreName[i].id)),
-
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 4.0,
@@ -88,7 +86,6 @@ class CrearCategorias extends StatelessWidget {
                         ],
                       ),
                       onPressed: () {},
-
                       style: ButtonStyle(
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
@@ -110,8 +107,7 @@ class CrearCategorias extends StatelessWidget {
   }
 
   Widget _iconoo(BuildContext context, int posision) {
-
-  if (posision != primerDato) {
+    if (posision != primerDato) {
       return Icon(
         Icons.fiber_manual_record_outlined,
         size: 12,
@@ -120,7 +116,5 @@ class CrearCategorias extends StatelessWidget {
     } else {
       return Container();
     }
+  }
 }
-
-}
-

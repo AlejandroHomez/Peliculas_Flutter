@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:peliculas_app/customPainters/animation_custompainter.dart';
 import 'package:peliculas_app/models/models.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 
@@ -40,17 +41,30 @@ class CardSwiper extends StatelessWidget {
           return GestureDetector(
             onTap: () =>
                 Navigator.pushNamed(context, 'details', arguments: movie),
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-              child: FadeInImage(
-                placeholder: AssetImage('assets/movieLoad.gif'),
-                image: NetworkImage(movie.fullPosterImg),
-                height: size.height * 0.45,
-                fit: BoxFit.cover,
-              ),
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                  child: FadeInImage(
+                    placeholder: AssetImage('assets/movieLoad.gif'),
+                    image: NetworkImage(movie.fullPosterImg),
+                    height: size.height * 0.45,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                Positioned(
+                  right: 10,
+                  top: 10,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    child: Animation_CustomPainer(movie)),
+                )
+              ],
             ),
           );
         },

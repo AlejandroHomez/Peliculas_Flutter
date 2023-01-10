@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomInicio extends StatelessWidget {
@@ -91,10 +90,7 @@ class CustomPrincipal extends CustomPainter {
     path.quadraticBezierTo(0, size.height * 0.6, 0, size.height * 0.65);
     path.lineTo(0, size.height);
     path.lineTo(0, 150);
-    
 
-
-    
     canvas.drawShadow(path, Colors.black45, 2, true);
     canvas.drawPath(path, paint);
     path.moveTo(size.width * 0.3, size.height * 0.6);
@@ -203,7 +199,7 @@ class CustomPrincipal3 extends CustomPainter {
     path.arcToPoint(Offset(size.width * 0.44, size.height * 0.22),
         radius: Radius.circular(20), clockwise: false);
     path.lineTo(0, 150);
-    
+
     canvas.drawPath(path, paint);
   }
 }

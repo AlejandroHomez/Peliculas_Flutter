@@ -1,26 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:peliculas_app/models/credis_response.dart';
-import 'package:peliculas_app/models/person_response.dart';
 import 'package:peliculas_app/providers/movies_provider.dart';
-import 'package:peliculas_app/widgets/myColors.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
 import 'package:provider/provider.dart';
 
 class CastingCards extends StatelessWidget {
-  
   final int movieId;
 
   const CastingCards(this.movieId);
 
   @override
   Widget build(BuildContext context) {
-
     final moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
 
     return FutureBuilder(
       future: moviesProvider.getMovieCast(movieId),
       builder: (_, AsyncSnapshot<List<Cast>> snapshot) {
-
         if (!snapshot.hasData) {
           return Container(
             width: double.infinity,
@@ -49,17 +45,14 @@ class CastingCards extends StatelessWidget {
 }
 
 class _CrearCards extends StatelessWidget {
-
   final Cast actor;
   const _CrearCards(this.actor);
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: () async {
-
-          Navigator.pushNamed(context, 'actor', arguments: actor );
+        Navigator.pushNamed(context, 'actor', arguments: actor);
       },
       child: Container(
           margin: EdgeInsets.symmetric(horizontal: 5, vertical: 0),
@@ -67,7 +60,6 @@ class _CrearCards extends StatelessWidget {
           height: 150,
           child: Column(
             children: [
-              
               ClipRRect(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:peliculas_app/screens/screens.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
+
+import 'dart:io';
 
 class CustomNavigatorBar extends StatelessWidget {
   @override
@@ -13,11 +15,11 @@ class CustomNavigatorBar extends StatelessWidget {
           left: 0,
           child: Container(
             width: size.width,
-            height: 73,
+            height: Platform.isIOS ? 85 : 73,
             child: Stack(
               children: [
                 CustomPaint(
-                  size: Size(size.width, 73),
+                  size: Size(size.width, Platform.isIOS ? 85 : 73),
                   painter: CustomNavBar(),
                 ),
                 Center(
@@ -30,7 +32,9 @@ class CustomNavigatorBar extends StatelessWidget {
                       splashColor: Colors.grey.shade200,
                       highlightElevation: 12,
                       mini: false,
-                      onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil('inicio', (Route<dynamic> route) => false),
+                      onPressed: () => Navigator.of(context)
+                          .pushNamedAndRemoveUntil(
+                              'inicio', (Route<dynamic> route) => false),
                       child: Icon(
                         Icons.home,
                         size: 35,
@@ -43,12 +47,12 @@ class CustomNavigatorBar extends StatelessWidget {
                 Container(
                   width: size.width,
                   height: 80,
-                  // color: Colors.red,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
-                          onPressed: () => Navigator.pushNamed(context, 'trailers'),
+                          onPressed: () =>
+                              Navigator.pushNamed(context, 'trailers'),
                           icon: Icon(
                             Icons.local_movies,
                             size: 35,
@@ -58,7 +62,7 @@ class CustomNavigatorBar extends StatelessWidget {
                         width: 10,
                       ),
                       IconButton(
-                      onPressed: () => Navigator.pushNamed(context, 'series'),
+                        onPressed: () => Navigator.pushNamed(context, 'series'),
                         icon: Icon(Icons.movie, size: 35, color: Colors.white),
                       ),
                     ],

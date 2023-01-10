@@ -32,10 +32,14 @@ dependencies:
   provider: ^5.0.0
   video_player: ^2.2.5
   youtube_player_flutter: ^8.0.0
-  google_mobile_ads: ^0.13.4
   animate_do: ^2.0.0
   share: ^2.0.4
   url_launcher: ^6.0.10
+  shared_preferences: ^2.0.6
+  font_awesome_flutter: ^9.1.0
+  flutter_statusbarcolor: ^0.2.3
+
+
 
 
 

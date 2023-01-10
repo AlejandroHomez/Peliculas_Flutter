@@ -41,11 +41,12 @@ class BackPage1 extends StatelessWidget {
             ButtonsContainer(),
             Center(
               child: IconButton(
-                  onPressed: () => Navigator.pushNamed(context, 'home'),
-                  icon: Icon(
-                    Icons.expand_more,
-                    size: 40,
-                  )),
+                onPressed: () => Navigator.pushNamed(context, 'home'),
+                icon: Icon(
+                  Icons.expand_more,
+                  size: 40,
+                ),
+              ),
             ),
           ],
         )
@@ -61,14 +62,13 @@ class ButtonsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
 
     return Container(
       margin: EdgeInsets.only(
-        left: size.width * 0.1, 
-        right: size.width * 0.1,   
-        ),
+        left: size.width * 0.1,
+        right: size.width * 0.1,
+      ),
 
       width: double.infinity,
       height: 250,
@@ -78,28 +78,26 @@ class ButtonsContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-
             TweenAnimationBuilder<double>(
               tween: Tween(begin: 1.0, end: 0.0),
               curve: Curves.easeOutBack,
-              duration: Duration(milliseconds: 1000) ,
+              duration: Duration(milliseconds: 1000),
               builder: (context, value, child) {
                 return Transform.translate(
                   offset: Offset(value * -200, 0.0),
                   child: child,
-                  );
+                );
               },
               child: GestureDetector(
-                  onTap: () =>
-                      showSearch(context: context, delegate: MovieSearchDelegate()),
+                  onTap: () => showSearch(
+                      context: context, delegate: MovieSearchDelegate()),
                   child: DetailsButtons(
                       title: "Buscar una Pelicula", icon: Icons.search)),
             ),
-
             TweenAnimationBuilder<double>(
               tween: Tween(begin: 1.0, end: 0.0),
               curve: Curves.easeOutBack,
-              duration: Duration(milliseconds: 1200 ),
+              duration: Duration(milliseconds: 1200),
               builder: (context, value, child) {
                 return Transform.translate(
                   offset: Offset(value * -200, 0.0),
@@ -111,7 +109,6 @@ class ButtonsContainer extends StatelessWidget {
                   child: DetailsButtons(
                       title: "Información de Peliculas", icon: Icons.movie)),
             ),
-
             TweenAnimationBuilder<double>(
               tween: Tween(begin: 1.0, end: 0.0),
               curve: Curves.easeOutBack,
@@ -125,7 +122,8 @@ class ButtonsContainer extends StatelessWidget {
               child: GestureDetector(
                   onTap: () => Navigator.pushNamed(context, 'series'),
                   child: DetailsButtons(
-                      title: "Información de Series", icon: Icons.list_rounded)),
+                      title: "Información de Series",
+                      icon: Icons.list_rounded)),
             ),
           ],
         ),
@@ -144,20 +142,21 @@ class DetailsButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var boxDecoration = BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        boxShadow: [
-          BoxShadow(color: Colors.black12, blurRadius: 10, spreadRadius: 5)
-        ],
-        gradient: LinearGradient(colors: [
-          // Color.fromRGBO(255, 0, 58, 1),
-          // Color.fromRGBO(255, 85, 0, 1),
-
+      borderRadius: BorderRadius.circular(50),
+      boxShadow: [
+        BoxShadow(color: Colors.black12, blurRadius: 10, spreadRadius: 5)
+      ],
+      gradient: LinearGradient(
+        colors: [
           Color.fromRGBO(42, 237, 140, 1),
           Color.fromRGBO(42, 237, 213, 1),
-        ]));
+        ],
+      ),
+    );
 
+    final size = MediaQuery.of(context).size;
     return Container(
-      width: 250,
+      width: size.width * 0.7,
       margin: EdgeInsets.symmetric(vertical: 10),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: boxDecoration,
@@ -194,28 +193,27 @@ class DecorationInico extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-            width: double.infinity,
-            height: size.height,
-            decoration: BoxDecoration(color: Colors.black
-                // Color.fromRGBO(50, 222, 167, 1),
-                ),
-            child: Stack(
-              children: [
-                CustomInicio(),
-                Positioned(
-                  top: size.height * 0.2,
-                  // right: size.width /2,
-                  child: Container(
-                    width: size.width,
-                    // color: Colors.red,
-                    child: Image(
-                      image: AssetImage('assets/IconoMovies.png'),
-                      height: 180,
-                    ),
+          width: double.infinity,
+          height: size.height,
+          color: Colors.black,
+          child: Stack(
+            children: [
+              CustomInicio(),
+              Positioned(
+                top: size.height * 0.2,
+                // right: size.width /2,
+                child: Container(
+                  width: size.width,
+                  // color: Colors.red,
+                  child: Image(
+                    image: AssetImage('assets/IconoMovies.png'),
+                    height: 180,
                   ),
-                )
-              ],
-            ))
+                ),
+              )
+            ],
+          ),
+        )
       ],
     );
   }

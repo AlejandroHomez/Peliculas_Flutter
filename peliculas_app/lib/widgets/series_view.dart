@@ -1,14 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
-import 'package:peliculas_app/models/models.dart';
 import 'package:peliculas_app/models/serie.dart';
-import 'package:peliculas_app/models/video_movie_response.dart';
-import 'package:peliculas_app/providers/movies_provider.dart';
 import "dart:async";
 
-import 'package:peliculas_app/screens/screens.dart';
-import 'package:provider/provider.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
 
 class SeriesView extends StatefulWidget {
   final Function onNextPage;
@@ -22,12 +17,9 @@ class SeriesView extends StatefulWidget {
 }
 
 class _SeriesViewState extends State<SeriesView> {
-
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
-    this.widget.onNextPage;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -36,8 +28,7 @@ class _SeriesViewState extends State<SeriesView> {
           padding: EdgeInsets.only(top: 15),
           width: size.width,
           height: size.height,
-          child: Stack(
-          children: [
+          child: Stack(children: [
             Swiper(
               scrollDirection: Axis.vertical,
               layout: SwiperLayout.DEFAULT,
@@ -46,7 +37,6 @@ class _SeriesViewState extends State<SeriesView> {
               itemCount: widget.series.length,
               itemWidth: size.width * 0.5,
               itemHeight: size.height * 0.5,
-
               pagination: SwiperPagination(
                   alignment: Alignment.topRight,
                   builder: FractionPaginationBuilder(
@@ -98,7 +88,6 @@ class _SliderSeriesState extends State<SliderSeries> {
             ),
           ],
         ),
-
         GestureDetector(
           onTap: () {
             setState(() {
@@ -144,11 +133,9 @@ class _SliderSeriesState extends State<SliderSeries> {
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.justify,
                   ),
-
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-
                       Container(
                           margin: EdgeInsets.only(top: 20, right: 10),
                           child: ClipRRect(
@@ -160,9 +147,7 @@ class _SliderSeriesState extends State<SliderSeries> {
                               height: 80,
                               fit: BoxFit.contain,
                             ),
-                          )
-                      ),
-
+                          )),
                       ConstrainedBox(
                         constraints: BoxConstraints(maxWidth: size.width - 205),
                         child: Center(
@@ -221,4 +206,3 @@ class _SliderSeriesState extends State<SliderSeries> {
     );
   }
 }
-

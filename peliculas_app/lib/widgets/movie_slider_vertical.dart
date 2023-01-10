@@ -2,13 +2,14 @@
 
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:peliculas_app/models/movie.dart';
 import 'package:peliculas_app/models/video_movie_response.dart';
 import 'package:peliculas_app/providers/movies_provider.dart';
-import 'package:peliculas_app/screens/screens.dart';
-import 'package:peliculas_app/widgets/myColors.dart';
+import 'package:peliculas_app/widgets/iconShare.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
+
 import 'package:provider/provider.dart';
-import 'package:share/share.dart';
 
 class MovieSliderVertical extends StatefulWidget {
   final List<Movie> movies;
@@ -25,7 +26,6 @@ class MovieSliderVertical extends StatefulWidget {
 }
 
 class _MovieSliderState extends State<MovieSliderVertical> {
-
   final ScrollController scrollController = new ScrollController();
 
   @override
@@ -46,7 +46,6 @@ class _MovieSliderState extends State<MovieSliderVertical> {
 
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
 
     return Container(
@@ -55,15 +54,14 @@ class _MovieSliderState extends State<MovieSliderVertical> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Expanded(
               child: ListView.builder(
-                physics: BouncingScrollPhysics(),
+                  physics: BouncingScrollPhysics(),
                   controller: scrollController,
                   scrollDirection: Axis.vertical,
                   itemCount: widget.movies.length,
-                  itemBuilder: (_, int index) =>
-                      ElasticIn(child: MovieVertical(widget.movies[index], index)))),
+                  itemBuilder: (_, int index) => ElasticIn(
+                      child: MovieVertical(widget.movies[index], index)))),
         ],
       ),
     );
@@ -78,44 +76,37 @@ class MovieVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final moviesProvider = Provider.of<MoviesProvider>(context);
     final videoEnlace = Provider.of<VideoEnlace>(context);
 
+    final moviesProvider = Provider.of<MoviesProvider>(context);
+    int indexMovie = moviesProvider.popularMoviesVideo
+        .indexWhere((element) => element.id == movie.id);
 
-      return Stack(
-        alignment: Alignment.center,
-        children: [
-             Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                width: double.infinity,
-                height: 230,
-                decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20)
-                  )
-                ),
-                margin: EdgeInsets.only(bottom: 10, left: 15, right: 15),
-                child: Column(
-                  children: [
-
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          width: double.infinity,
+          height: 230,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          margin: EdgeInsets.only(bottom: 10, left: 15, right: 15),
+          child: Column(
+            children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   _TituloMovie(movie: movie),
                   Expanded(child: Container()),
-                  _IconFavorito(movie),
-                  _IconShare(movie, index),
-
-
-
+                  _IconFavorite(index, movie),
+                  IconShare(movie),
                 ],
               ),
               SizedBox(
                 height: 8,
               ),
-
               ZoomIn(
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
@@ -130,65 +121,103 @@ class MovieVertical extends StatelessWidget {
                   ),
                 ),
               ),
-
-              
             ],
           ),
         ),
-        
+        FutureBuilder(
+            future: moviesProvider.getVideoMovie(movie.id),
+            builder: (_, AsyncSnapshot<Video> snapshot) {
+              if (!snapshot.hasData) {
+                return Container(
+                  child: CircularProgressIndicator(
+                    color: MyColors.colorIcon,
+                  ),
+                );
+              }
 
-          FutureBuilder(
-              future: moviesProvider.getVideoMovie(movie.id),
-              builder: (_, AsyncSnapshot<Video> snapshot) {
+              if (snapshot.data!.id != '000') {
+                final Video video = snapshot.data!;
 
-                if (!snapshot.hasData) {
-                  return Container(
-                    child: CircularProgressIndicator(                      
-                      color: MyColors.colorIcon,
-                    ),
-                  );
-                } 
+                videoEnlace.setKey = video.key!;
 
-                if (snapshot.data!.id != '000') {
-                  final Video video = snapshot.data!;
-
-                  videoEnlace.setKey = video.key!;
-
-                  return  GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, 'video', arguments: video);
-                      },
-                      child: Stack(
-                        children: [
-                          
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(100),
-                                border: Border.all(color: Colors.white, width: 2)),
-                            child: Icon(
-                              Icons.play_arrow,
-                              size: 35,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'video', arguments: video);
+                  },
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(color: Colors.white, width: 2)),
+                        child: Icon(
+                          Icons.play_arrow,
+                          size: 35,
+                          color: Colors.white,
+                        ),
                       ),
-                    );
-                }
+                    ],
+                  ),
+                );
+              }
 
-                return Container();
-              }),
-        ],
-      );
-  
-      
-
+              return Container();
+            }),
+      ],
+    );
   }
 }
 
+class _IconFavorite extends StatelessWidget {
+  final Movie movie;
+  final int index;
+  _IconFavorite(this.index, this.movie);
+
+  @override
+  Widget build(BuildContext context) {
+    final moviesProvider = Provider.of<MoviesProvider>(context);
+
+    for (var i = 0; i < moviesProvider.favoriteMovies.length; i++) {
+      if (moviesProvider.favoriteMovies[i].id == movie.id) {
+        return GestureDetector(
+          onTap: () {
+            moviesProvider.eliminarFavoritos(movie);
+          },
+          child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              width: 35,
+              height: 35,
+              decoration: BoxDecoration(
+                  color: MyColors.colorIcon,
+                  borderRadius: BorderRadius.all(Radius.circular(8))),
+              child: Pulse(
+                  duration: Duration(milliseconds: 400),
+                  child: Icon(FontAwesomeIcons.solidBookmark,
+                      color: Colors.white, size: 24))),
+        );
+      }
+    }
+
+    return GestureDetector(
+      onTap: () {
+        moviesProvider.getFavoriteMovies(movie);
+      },
+      child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 5),
+          width: 35,
+          height: 35,
+          decoration: BoxDecoration(
+              color: MyColors.colorIcon,
+              borderRadius: BorderRadius.all(Radius.circular(8))),
+          child: ElasticIn(
+              child: Icon(FontAwesomeIcons.bookmark,
+                  color: Colors.white, size: 24))),
+    );
+  }
+}
 
 class _TituloMovie extends StatelessWidget {
   const _TituloMovie({
@@ -222,88 +251,3 @@ class _TituloMovie extends StatelessWidget {
     );
   }
 }
-
-
-class _IconFavorito extends StatelessWidget {
-
-  final Movie movie;
-  _IconFavorito(this.movie);
-
-  @override
-  Widget build(BuildContext context) {
-
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
-        width: 35,
-        height: 35,
-        decoration: BoxDecoration(
-          color: MyColors.colorIcon,
-          borderRadius: BorderRadius.all(Radius.circular(8))
-        ),
-        child: Icon(Icons.favorite_border, color: Colors.white, size: 24),
-      ),
-    );
-  }
-}
-
-class _IconShare extends StatelessWidget {
-  
-
-    final Movie movie;
-    final int index;
-  _IconShare(this.movie, this.index);
-
-
-  @override
-  Widget build(BuildContext context) {
-
- final moviesProvider = Provider.of<MoviesProvider>(context);
-
-
-    return FutureBuilder(
-      future: moviesProvider.getVideoMovie(movie.id),
-      builder: (_, AsyncSnapshot<Video> snapshot ) {
-
-
-          if (!snapshot.hasData) {
-                  return Container(
-                width: 35,
-                height: 35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.grey.shade300),
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                ),
-                child: Icon(Icons.share, color:Colors.grey.shade400 ,size: 24,),
-              );
-          } 
-
-       final Video videoEnlace = snapshot.data!;
-
-       final String enlace = 'https://www.youtube.com/watch?v=${videoEnlace.key}';
-
-        return GestureDetector(
-        onTap: () {
-          Share.share('Mira el trailer de esta pelicula: \n\nNombre: ${movie.title} \n\nTrailer: $enlace');
-        },
-        child: Container(
-          width: 35,
-          height: 35,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.grey.shade300),
-            borderRadius: BorderRadius.all(Radius.circular(8)),
-          ),
-          child: Icon(Icons.share, color: MyColors.colorIcon,size: 24,),
-        ),
-      );
-
-      },
-
-    );
-  }
-}
-
-

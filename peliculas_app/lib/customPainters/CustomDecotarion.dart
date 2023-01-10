@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peliculas_app/widgets/myColors.dart';
+import 'package:peliculas_app/tokens/tokens.dart';
 
 class CustomDecoration extends CustomPainter {
   @override
