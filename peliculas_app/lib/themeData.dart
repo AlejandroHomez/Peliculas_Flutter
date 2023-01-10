@@ -3,20 +3,15 @@ import 'package:flutter/services.dart';
 
 ThemeData themeData(BuildContext context) {
   return ThemeData(
-    // brightness: Brightness.dark,
     appBarTheme: AppBarTheme(
-      color: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      iconTheme: IconThemeData(
-        color: Colors.black.withOpacity(0.5),
-      ),
       systemOverlayStyle:
           SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
     ),
     brightness: Brightness.light,
-    primaryTextTheme: Theme.of(context)
-        .primaryTextTheme
-        .apply(bodyColor: Colors.black.withOpacity(0.6)),
+    primaryTextTheme: Theme.of(context).primaryTextTheme.apply(
+          bodyColor: Colors.black.withOpacity(0.6),
+        ),
   );
 }

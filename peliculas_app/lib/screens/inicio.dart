@@ -7,13 +7,20 @@ class InicioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 10,
+        ),
+        extendBodyBehindAppBar: true,
+        extendBody: true,
         body: PageView(
-      scrollDirection: Axis.vertical,
-      children: [
-        BackPage1(),
-        HomeScreen(),
-      ],
-    ));
+          scrollDirection: Axis.vertical,
+          children: [
+            BackPage1(),
+            HomeScreen(),
+          ],
+        ));
   }
 }
 

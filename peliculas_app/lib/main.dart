@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: themeData(context),
       debugShowCheckedModeBanner: false,
       title: 'Peliculas App',
       initialRoute: 'inicio',
@@ -50,7 +51,6 @@ class MyApp extends StatelessWidget {
         'favorites': (_) => FavoritesPage(),
         'video': (_) => VideoScreen(),
       },
-      theme: themeData(context),
     );
   }
 }

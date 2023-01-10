@@ -46,80 +46,80 @@ class _SeriesPageState extends State<SeriesPage> {
     print(_opacity);
 
     return Scaffold(
-        appBar: Header(
-          title: 'Series',
-          leftContent: IconButton(
-            icon: Icon(Icons.arrow_back_ios_new_rounded,
-                color: MyColors.colorIcon, size: 30),
-            onPressed: pushNamedAndRemoveUntil('home', context, null),
-          ),
-          rightContent: GestureDetector(
-            onTap: () =>
-                showSearch(context: context, delegate: MovieSearchDelegate()),
-            child: CircleAvatar(
-              backgroundColor: MyColors.colorIcon,
-              child: Icon(
-                Icons.search_outlined,
-                color: Colors.white,
-              ),
+      appBar: Header(
+        title: 'Series',
+        leftContent: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new_rounded,
+              color: MyColors.colorIcon, size: 30),
+          onPressed: pushNamedAndRemoveUntil('home', context, null),
+        ),
+        rightContent: GestureDetector(
+          onTap: () =>
+              showSearch(context: context, delegate: MovieSearchDelegate()),
+          child: CircleAvatar(
+            backgroundColor: MyColors.colorIcon,
+            child: Icon(
+              Icons.search_outlined,
+              color: Colors.white,
             ),
           ),
         ),
-        body: Stack(
-          alignment: Alignment.center,
-          children: [
-            PageView(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              children: [
-                Page1(),
-                Page2(),
-                Page3(),
-              ],
-            ),
-            Positioned(
-              top: size.height * 0.25,
-              left: 0,
-              child: AnimatedOpacity(
-                curve: Curves.easeInExpo,
+      ),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          PageView(
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            children: [
+              Page1(),
+              Page2(),
+              Page3(),
+            ],
+          ),
+          Positioned(
+            top: size.height * 0.25,
+            left: 0,
+            child: AnimatedOpacity(
+              curve: Curves.easeInExpo,
+              duration: Duration(seconds: 5),
+              opacity: _opacity,
+              child: TweenAnimationBuilder<double>(
+                tween: Tween(begin: 0.0, end: 1.0),
                 duration: Duration(seconds: 5),
-                opacity: _opacity,
-                child: TweenAnimationBuilder<double>(
-                  tween: Tween(begin: 0.0, end: 1.0),
-                  duration: Duration(seconds: 5),
-                  curve: Curves.easeInExpo,
-                  builder: (context, value, child) {
-                    return Transform.translate(
-                      offset: Offset(value * 500, 0.0),
-                      child: child,
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    height: 125,
-                    decoration: BoxDecoration(
-                        color: Colors.white54,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Desliza para ver mas series',
-                          style:
-                              TextStyle(fontSize: 20, fontFamily: 'CarterOne'),
-                        ),
-                        Image(
-                          image: AssetImage('assets/desliza2.gif'),
-                          width: 70,
-                        ),
-                      ],
-                    ),
+                curve: Curves.easeInExpo,
+                builder: (context, value, child) {
+                  return Transform.translate(
+                    offset: Offset(value * 500, 0.0),
+                    child: child,
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(10),
+                  height: 125,
+                  decoration: BoxDecoration(
+                      color: Colors.white54,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Desliza para ver mas series',
+                        style: TextStyle(fontSize: 20, fontFamily: 'CarterOne'),
+                      ),
+                      Image(
+                        image: AssetImage('assets/desliza2.gif'),
+                        width: 70,
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
 
