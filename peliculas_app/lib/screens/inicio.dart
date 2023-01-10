@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peliculas_app/customPainters/customs.dart';
+import 'package:peliculas_app/helpers/helpers.dart';
+import 'package:peliculas_app/screens/rulette_page.dart';
 import 'package:peliculas_app/screens/screens.dart';
 import 'package:peliculas_app/serach/search_delegate.dart';
 
@@ -44,7 +46,9 @@ class BackPage1 extends StatelessWidget {
                 maxLines: 2,
               ),
             ),
-            Expanded(child: Container()),
+            Expanded(
+              child: Container(),
+            ),
             ButtonsContainer(),
             Center(
               child: IconButton(
@@ -195,6 +199,7 @@ class DecorationInico extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -208,20 +213,78 @@ class DecorationInico extends StatelessWidget {
               CustomInicio(),
               Positioned(
                 top: size.height * 0.2,
-                // right: size.width /2,
                 child: Container(
                   width: size.width,
                   // color: Colors.red,
-                  child: Image(
-                    image: AssetImage('assets/IconoMovies.png'),
-                    height: 180,
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage('assets/IconoMovies.png'),
+                        height: 180,
+                      ),
+                      _RouletteButton()
+                    ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         )
       ],
+    );
+  }
+}
+
+class _RouletteButton extends StatelessWidget {
+  const _RouletteButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var boxDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(50),
+      gradient: LinearGradient(
+        colors: [
+          Color.fromRGBO(42, 237, 140, 1),
+          Color.fromRGBO(42, 237, 213, 1),
+        ],
+      ),
+    );
+
+    final size = MediaQuery.of(context).size;
+
+    return GestureDetector(
+      onTap: push(context, RulettePage(), null),
+      child: Container(
+        width: size.width * 0.5,
+        margin: EdgeInsets.symmetric(vertical: 10),
+        padding: EdgeInsets.symmetric(vertical: 5),
+        decoration: boxDecoration,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              maxRadius: 16,
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Image.asset(
+                  'assets/roulette.png',
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              '¿No sabes que ver?',
+              style: TextStyle(
+                  color: Colors.black, fontFamily: 'CarterOne', fontSize: 12),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
