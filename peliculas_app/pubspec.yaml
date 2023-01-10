@@ -37,7 +37,6 @@ dependencies:
   url_launcher: ^6.0.10
   shared_preferences: ^2.0.6
   font_awesome_flutter: ^9.1.0
-  flutter_statusbarcolor: ^0.2.3
 
 
 
