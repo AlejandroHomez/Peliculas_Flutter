@@ -17,15 +17,41 @@ class RulettePage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Container(
-          width: size.width * 0.6,
-          height: size.width * 0.6,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            shape: BoxShape.circle,
+          // child: MultiSliver(
+          //   // defaults to false
+          //   pushPinnedChildren: true,
+          //   children: <Widget>[
+          //     SliverPinnedHeader(
+          //         child: Container(
+          //             color: Colors.yellow,
+          //             height: 100,
+          //             child: Text(
+          //               "I am a Pinned Header",
+          //               style: TextStyle(fontSize: 30),
+          //             ))),
+          //     SliverList(
+          //       delegate: SliverChildBuilderDelegate(
+          //         (BuildContext context, int index) {
+          //           return Padding(
+          //             padding: const EdgeInsets.all(8.0),
+          //             child: Container(
+          //               color: index % 2 == 0 ? Colors.green : Colors.greenAccent,
+          //               height: 80,
+          //               alignment: Alignment.center,
+          //               child: Text(
+          //                 "Item $index",
+          //                 style: const TextStyle(fontSize: 30),
+          //               ),
+          //             ),
+          //           );
+          //         },
+          //         // 40 list items
+          //         childCount: 40,
+          //       ),
+          //     ),
+          //   ],
+          // ),
           ),
-        ),
-      ),
     );
   }
 }

@@ -117,67 +117,84 @@ class _AppBarDetailsState extends State<_AppBarDetails> {
                 width: double.infinity,
               ),
               FutureBuilder(
-                  future: moviesProvider.getVideoMovie(widget.movie.id),
-                  builder: (_, AsyncSnapshot<Video> snapshot) {
-                    if (!snapshot.hasData) {
-                      return Container();
-                    }
+                future: moviesProvider.getVideoMovie(widget.movie.id),
+                builder: (_, AsyncSnapshot<Video> snapshot) {
+                  if (!snapshot.hasData) {
+                    return Container();
+                  }
 
-                    if (snapshot.data!.id != '000') {
-                      final Video video = snapshot.data!;
+                  if (snapshot.data!.id != '000') {
+                    final Video video = snapshot.data!;
 
-                      return TweenAnimationBuilder<double>(
-                        tween: Tween(begin: 1.0, end: 0.0),
-                        curve: Curves.easeOutBack,
-                        duration: Duration(seconds: 1),
-                        builder: (context, value, child) {
-                          return Transform.translate(
-                            offset: Offset(value * -200, 0.0),
-                            child: child,
-                          );
+                    return TweenAnimationBuilder<double>(
+                      tween: Tween(begin: 1.0, end: 0.0),
+                      curve: Curves.easeOutBack,
+                      duration: Duration(seconds: 1),
+                      builder: (context, value, child) {
+                        return Transform.translate(
+                          offset: Offset(value * -200, 0.0),
+                          child: child,
+                        );
+                      },
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, 'video',
+                              arguments: video);
                         },
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, 'video',
-                                arguments: video);
-                          },
-                          child: Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                                color: MyColors.colorIcon,
-                                borderRadius: BorderRadius.circular(100),
-                                border:
-                                    Border.all(color: Colors.white, width: 2)),
-                            child: Icon(
-                              Icons.play_arrow,
-                              size: 35,
-                              color: Colors.white,
-                            ),
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              color: MyColors.colorIcon,
+                              borderRadius: BorderRadius.circular(100),
+                              border:
+                                  Border.all(color: Colors.white, width: 2)),
+                          child: Icon(
+                            Icons.play_arrow,
+                            size: 35,
+                            color: Colors.white,
                           ),
                         ),
-                      );
-                    }
+                      ),
+                    );
+                  }
 
-                    return Container();
-                  }),
-              Positioned(
-                  top: 35,
-                  right: 20,
-                  child: Transform.scale(
-                      scale: 1.2, child: IconShare(widget.movie)))
+                  return Container();
+                },
+              ),
             ],
           ),
         ),
-        Positioned(
-            top: 25,
-            child: IconButton(
-                onPressed: () => Navigator.pop(context, 'home'),
-                icon: Icon(
-                  Icons.reply_rounded,
-                  color: Colors.white54,
-                  size: 30,
-                ))),
+        SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Positioned(
+                  top: 25,
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(context, 'home'),
+                    icon: Icon(
+                      Icons.reply_rounded,
+                      color: Colors.white54,
+                      size: 30,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 35,
+                  right: 20,
+                  child: Transform.scale(
+                    scale: 1.2,
+                    child: IconShare(widget.movie),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }

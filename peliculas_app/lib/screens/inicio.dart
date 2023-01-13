@@ -257,32 +257,39 @@ class _RouletteButton extends StatelessWidget {
     return GestureDetector(
       onTap: push(context, RulettePage(), null),
       child: Container(
-        width: size.width * 0.5,
+        width: size.width * 0.25,
         margin: EdgeInsets.symmetric(vertical: 10),
-        padding: EdgeInsets.symmetric(vertical: 5),
+        padding: EdgeInsets.symmetric(vertical: 1, horizontal: 1),
         decoration: boxDecoration,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              backgroundColor: Colors.white,
-              maxRadius: 16,
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Image.asset(
-                  'assets/roulette.png',
+        child: Container(
+          width: size.width * 0.25,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.white,
+                maxRadius: 16,
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Image.asset(
+                    'assets/roulette.png',
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              '¿No sabes que ver?',
-              style: TextStyle(
-                  color: Colors.black, fontFamily: 'CarterOne', fontSize: 12),
-            )
-          ],
+              SizedBox(
+                width: 4,
+              ),
+              Text(
+                'Ruleta',
+                style: TextStyle(
+                    color: Colors.black, fontFamily: 'CarterOne', fontSize: 12),
+              )
+            ],
+          ),
         ),
       ),
     );
