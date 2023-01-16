@@ -60,5 +60,4 @@ class SeriesProvider extends ChangeNotifier {
 
     notifyListeners();
   }
-
 }

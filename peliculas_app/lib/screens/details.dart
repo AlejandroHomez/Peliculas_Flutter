@@ -284,9 +284,10 @@ class _OverView extends StatelessWidget {
               movie.overview,
               textAlign: TextAlign.justify,
               style: TextStyle(
-                  fontFamily: 'AndadaPro',
-                  fontSize: 18,
-                  color: Colors.grey.shade700),
+                fontFamily: 'AndadaPro',
+                fontSize: 18,
+                color: Colors.grey.shade700,
+              ),
             ),
           );
   }

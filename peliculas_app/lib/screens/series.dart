@@ -3,7 +3,6 @@ import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 import 'package:peliculas_app/helpers/routes.dart';
 import 'package:peliculas_app/models/serie.dart';
 import 'package:peliculas_app/providers/series_provider.dart';
-
 import 'package:peliculas_app/screens/screens.dart';
 import 'package:peliculas_app/serach/search_delegate.dart';
 import 'package:peliculas_app/widgets/widgets.dart';
@@ -42,8 +41,6 @@ class _SeriesPageState extends State<SeriesPage> {
     final size = MediaQuery.of(context).size;
 
     print('Index: ${swiperController.event}');
-
-    print(_opacity);
 
     return Scaffold(
       appBar: Header(

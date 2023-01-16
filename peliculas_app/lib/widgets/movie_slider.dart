@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas_app/helpers/helpers.dart';
 import 'package:peliculas_app/models/movie.dart';
 import 'package:peliculas_app/tokens/tokens.dart';
 
@@ -86,8 +87,7 @@ class MovieHorizontal extends StatelessWidget {
       child: Column(
         children: [
           GestureDetector(
-            onTap: () =>
-                Navigator.pushNamed(context, 'details', arguments: movie),
+            onTap: pushNamed('details', context, movie),
             child: ClipRRect(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),

@@ -19,7 +19,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final emptyBox = SizedBox.shrink();
+    final emptyBox = SizedBox(width: 50);
     final size = MediaQuery.of(context).size;
     return SafeArea(
       top: true,
