@@ -36,50 +36,25 @@ class _RulettePageState extends State<RulettePage>
     movies.addAll(moviesProvider.topRateMovies);
     movies.addAll(moviesProvider.upcomingMovies);
 
-    _animationController.addStatusListener((status) {
-      if (status.index == 0.8) {
-        print(status.index);
-        moviesLength = movies.length;
+    moviesLength = movies.length;
 
-        setState(() {
-          randomLeft = random.nextInt(moviesLength);
-          randomCenter = random.nextInt(moviesLength);
-          randomRight = random.nextInt(moviesLength);
-        });
-      }
+    randomLeft = random.nextInt(moviesLength);
+    randomCenter = random.nextInt(moviesLength);
+    randomRight = random.nextInt(moviesLength);
 
-      if (status.index == 0.5) {
-        moviesLength = movies.length;
+    // _animationController.addStatusListener((status) {
+    //   if (status.index == 0.8) {
+    //     print(status.index);
+    //     moviesLength = movies.length;
 
-        setState(() {
-          randomLeft = random.nextInt(moviesLength);
-          randomCenter = random.nextInt(moviesLength);
-          randomRight = random.nextInt(moviesLength);
-        });
-      }
-      // setState(() {
-      //   int _count = 0;
-
-      //   while (_count < 2) {
-      //     if (randomCenter != randomLeft &&
-      //         randomCenter != randomRight &&
-      //         randomLeft != randomRight) {
-      //       _count++;
-      //     } else {
-      //       while (randomCenter != randomLeft &&
-      //           randomCenter != randomRight &&
-      //           randomLeft != randomRight) {
-      //         randomLeft = random.nextInt(moviesLength);
-      //         randomCenter = random.nextInt(moviesLength);
-      //         randomRight = random.nextInt(moviesLength);
-      //       }
-      //       _count++;
-      //     }
-      //   }
-      // });
-
-      _animationController.reset();
-    });
+    //     setState(() {
+    //       randomLeft = random.nextInt(moviesLength);
+    //       randomCenter = random.nextInt(moviesLength);
+    //       randomRight = random.nextInt(moviesLength);
+    //     });
+    //   }
+    //   _animationController.reset();
+    // });
 
     super.initState();
   }
@@ -148,7 +123,7 @@ class _RulettePageState extends State<RulettePage>
                   child: Column(
                     children: [
                       Text(
-                        '¿ Aceptas el reto ? \n ve a ver esta pelicula!!',
+                        '¿ Aceptas el reto ? \n Ve a ver esta pelicula!!',
                         style: TextStyle(
                           color: Colors.black38,
                           fontSize: 20,
@@ -187,7 +162,11 @@ class _RulettePageState extends State<RulettePage>
             right: 50,
             child: GestureDetector(
               onTap: (() {
-                _animationController.forward();
+                setState(() {
+                  randomLeft = random.nextInt(moviesLength);
+                  randomCenter = random.nextInt(moviesLength);
+                  randomRight = random.nextInt(moviesLength);
+                });
               }),
               child: Container(
                 padding: EdgeInsets.all(8.0),
