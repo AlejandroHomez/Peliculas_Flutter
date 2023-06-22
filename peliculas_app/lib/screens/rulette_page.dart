@@ -89,83 +89,95 @@ class _RulettePageState extends State<RulettePage>
           SizedBox(
             width: size.width,
             height: size.height,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: size.height * 0.54,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CardRoulette(
-                        movie: leftMovie,
-                        sizeHeight: 400,
-                        sizeWith: size.width * 0.14,
-                        isSelected: false,
-                      ),
-                      CardRoulette(
-                        movie: centerMovie,
-                        sizeHeight: 600,
-                        sizeWith: size.width * 0.6,
-                        isSelected: true,
-                      ),
-                      CardRoulette(
-                        movie: rightMovie,
-                        sizeHeight: 400,
-                        sizeWith: size.width * 0.14,
-                        isSelected: false,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(8.0),
-                  width: size.width,
-                  child: Column(
-                    children: [
-                      Text(
-                        '¿ Aceptas el reto ? \n Ve a ver esta pelicula!!',
-                        style: TextStyle(
-                          color: Colors.black38,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'CarterOne',
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: size.height * 0.54,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CardRoulette(
+                          movie: leftMovie,
+                          sizeHeight: 400,
+                          sizeWith: size.width * 0.135,
+                          isSelected: false,
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        centerMovie.title,
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'AndadaPro',
+                        CardRoulette(
+                          movie: centerMovie,
+                          sizeHeight: 600,
+                          sizeWith: size.width * 0.6,
+                          isSelected: true,
                         ),
-                      ),
-                      Text(
-                        'Promedio de votos',
-                        style: TextStyle(fontFamily: 'AndadaPro'),
-                      ),
-                      Animation_CustomPainerLinea(centerMovie),
-                      const SizedBox(height: 10),
-                    ],
+                        CardRoulette(
+                          movie: rightMovie,
+                          sizeHeight: 400,
+                          sizeWith: size.width * 0.135,
+                          isSelected: false,
+                        ),
+                      ],
+                    ),
                   ),
-                )
-              ],
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    width: size.width,
+                    child: Column(
+                      children: [
+                        Text(
+                          '¿ Aceptas el reto ? \n Ve a ver esta pelicula!!',
+                          style: TextStyle(
+                            color: Colors.black38,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'CarterOne',
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          centerMovie.title,
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'AndadaPro',
+                          ),
+                        ),
+                        Text(
+                          'Promedio de votos',
+                          style: TextStyle(fontFamily: 'AndadaPro'),
+                        ),
+                        Animation_CustomPainerLinea(centerMovie),
+                        const SizedBox(height: 100),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           Positioned(
-            bottom: 50,
+            bottom: 35,
             left: 50,
             right: 50,
             child: GestureDetector(
               onTap: (() {
                 setState(() {
-                  randomLeft = random.nextInt(moviesLength);
-                  randomCenter = random.nextInt(moviesLength);
-                  randomRight = random.nextInt(moviesLength);
+                  List<int> generatedNumbers = [];
+
+                  while (generatedNumbers.length < 3) {
+                    int randomNumber = random.nextInt(moviesLength);
+                    if (!generatedNumbers.contains(randomNumber)) {
+                      generatedNumbers.add(randomNumber);
+                    }
+                  }
+
+                  randomLeft = generatedNumbers[0];
+                  randomCenter = generatedNumbers[1];
+                  randomRight = generatedNumbers[2];
                 });
               }),
               child: Container(
@@ -173,7 +185,7 @@ class _RulettePageState extends State<RulettePage>
                 width: size.width * 0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(
-                    Radius.circular(20),
+                    Radius.circular(50),
                   ),
                   gradient: LinearGradient(
                     colors: [
