@@ -1,14 +1,9 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:peliculas_app/customPainters/animation_custompainter.dart';
 import 'package:peliculas_app/models/models.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 
-
 class CardSwiper extends StatelessWidget {
-
   final List<Movie> movies;
 
   const CardSwiper({Key? key, required this.movies}) : super(key: key);
@@ -37,7 +32,7 @@ class CardSwiper extends StatelessWidget {
         itemHeight: size.height * 0.45,
         itemBuilder: (_, int index) {
           final movie = movies[index];
-          
+
           return GestureDetector(
             onTap: () =>
                 Navigator.pushNamed(context, 'details', arguments: movie),
@@ -55,14 +50,13 @@ class CardSwiper extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-
                 Positioned(
                   right: 10,
                   top: 10,
                   child: Container(
-                    width: 50,
-                    height: 50,
-                    child: Animation_CustomPainer(movie)),
+                      width: 50,
+                      height: 50,
+                      child: Animation_CustomPainer(movie)),
                 )
               ],
             ),

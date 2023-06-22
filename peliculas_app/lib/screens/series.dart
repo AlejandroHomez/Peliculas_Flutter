@@ -24,7 +24,7 @@ class _SeriesPageState extends State<SeriesPage> {
   void initState() {
     super.initState();
     swiperController.move(1);
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         _opacity = 0;
       });

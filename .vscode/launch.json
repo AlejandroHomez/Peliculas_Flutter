@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "peliculas_app",
+            "cwd": "peliculas_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "peliculas_app (profile mode)",
+            "cwd": "peliculas_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "peliculas_app (release mode)",
+            "cwd": "peliculas_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

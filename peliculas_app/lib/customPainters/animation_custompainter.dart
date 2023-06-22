@@ -99,7 +99,6 @@ class _ProgressPainter extends CustomPainter {
       ..strokeWidth = 7
       ..style = PaintingStyle.stroke;
 
-    final path = Path();
     final c = Offset(size.width * 0.5, size.height * 0.5);
     final radius = min(size.width * 0.5, size.height * 0.5);
 
