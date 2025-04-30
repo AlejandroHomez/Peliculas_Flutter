@@ -106,7 +106,7 @@ class _SliderSeriesState extends State<SliderSeries> {
             curve: Curves.easeInOutBack,
             padding: EdgeInsets.only(top: 5, right: 8, left: 8, bottom: 15),
             width: size.width,
-            height: selected ? 250 : 380,
+            height: selected ? 250 : size.height * 0.8,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(

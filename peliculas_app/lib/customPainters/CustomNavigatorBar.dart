@@ -1,9 +1,21 @@
+
 import 'package:flutter/material.dart';
 import 'package:peliculas_app/tokens/tokens.dart';
 
 import 'dart:io';
 
 class CustomNavigatorBar extends StatelessWidget {
+  final IconData? centerIcon;
+  final Widget? widgetIcon;
+  final Function()? centerIconPressed;
+
+  const CustomNavigatorBar({
+    Key? key,
+    this.centerIcon,
+    this.centerIconPressed,
+    this.widgetIcon,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -13,7 +25,8 @@ class CustomNavigatorBar extends StatelessWidget {
         Positioned(
           bottom: 0,
           left: 0,
-          child: Container(
+          child: AnimatedContainer(
+            duration: Duration(milliseconds: 600),
             width: size.width,
             height: Platform.isIOS ? 85 : 73,
             child: Stack(
@@ -32,13 +45,19 @@ class CustomNavigatorBar extends StatelessWidget {
                       splashColor: Colors.grey.shade200,
                       highlightElevation: 12,
                       mini: false,
-                      onPressed: () => Navigator.of(context)
-                          .pushNamedAndRemoveUntil(
+                      onPressed: () => centerIconPressed != null
+                          ? centerIconPressed?.call()
+                          : Navigator.of(context).pushNamedAndRemoveUntil(
                               'inicio', (Route<dynamic> route) => false),
-                      child: Icon(
-                        Icons.home,
-                        size: 35,
-                        color: MyColors.colorIcon,
+                      child: widgetIcon != null
+                          ? widgetIcon
+                          : Icon(
+                              centerIcon ?? Icons.home,
+                              size: 35,
+                              color: MyColors.colorIcon,
+                            ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
                       ),
                       backgroundColor: Colors.white,
                     ),

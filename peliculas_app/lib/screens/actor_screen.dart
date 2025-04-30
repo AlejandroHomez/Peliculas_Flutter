@@ -27,6 +27,19 @@ class ActorScreen extends StatelessWidget {
       body: FutureBuilder(
           future: moviesProvider.getActoresMovie(person.id),
           builder: (_, AsyncSnapshot<PersonResponse> snapshot) {
+
+            if (snapshot.hasError) {
+              return Container(
+                width: double.infinity,
+                height: double.infinity,
+                child: Center(
+                  child: Text(
+                    'No hay información',
+                    style: TextStyle(fontSize: 25, fontFamily: 'CarterOne'),
+                  ),
+                ),
+              );
+            }
             if (!snapshot.hasData) {
               return Container(
                 width: double.infinity,
@@ -236,7 +249,10 @@ class _TopDetalles extends StatelessWidget {
                         child: Text(
                       personResponse.name,
                       style: TextStyle(fontSize: 25, fontFamily: 'CarterOne'),
-                    )))),
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),

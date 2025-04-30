@@ -73,7 +73,10 @@ class DetailsScreen extends StatelessWidget {
             ],
           ),
         ),
-        CustomNavigatorBar()
+        CustomNavigatorBar(
+          centerIconPressed: () => Navigator.of(context)
+              .pushNamedAndRemoveUntil('home', (Route<dynamic> route) => false),
+        )
       ],
     ));
   }
@@ -249,6 +252,13 @@ class DetailsMovie extends StatelessWidget {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.headlineMedium),
+                  SizedBox(height: 15),
+                  Text(
+                    'Nombre original:',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 15, fontFamily: 'CarterOne'),
+                  ),
                   Text(movie.originalTitle,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -317,7 +327,9 @@ class _IconFavorite extends StatelessWidget {
               child: Pulse(
                   duration: Duration(milliseconds: 400),
                   child: Icon(FontAwesomeIcons.solidBookmark,
-                      color: Colors.white, size: 25))),
+                  color: Colors.white, size: 25),
+            ),
+          ),
         );
       }
     }
@@ -335,7 +347,11 @@ class _IconFavorite extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(8))),
           child: ElasticIn(
               child: Icon(FontAwesomeIcons.bookmark,
-                  color: Colors.white, size: 24))),
+            color: Colors.white,
+            size: 24,
+          ),
+        ),
+      ),
     );
   }
 }

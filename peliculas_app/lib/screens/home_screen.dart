@@ -150,7 +150,14 @@ class _HomeScreenState extends State<HomeScreen>
                 ],
               ),
             ),
-            CustomNavigatorBar()
+            CustomNavigatorBar(
+              widgetIcon: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Image.asset(
+                  'assets/CicleLoad.png',
+                ),
+              ),
+            )
           ],
         ),
       ),

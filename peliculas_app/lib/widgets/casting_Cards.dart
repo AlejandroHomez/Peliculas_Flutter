@@ -32,7 +32,7 @@ class CastingCards extends StatelessWidget {
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 5),
           width: double.infinity,
-          height: 200,
+          height: 210,
           child: ListView.builder(
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -77,7 +77,7 @@ class _CrearCards extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                height: 35,
+              height: 45,
                 margin: EdgeInsets.only(top: 7, bottom: 7),
                 padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                 decoration: BoxDecoration(
@@ -120,13 +120,14 @@ class _CrearCards extends StatelessWidget {
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
-                          style: Theme.of(context).textTheme.displayMedium,
+                        style: Theme.of(context).textTheme.bodySmall,
                         )),
                   ],
                 ),
               )
             ],
-          )),
+        ),
+      ),
     );
   }
 }
