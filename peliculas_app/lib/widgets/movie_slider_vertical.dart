@@ -79,8 +79,6 @@ class MovieVertical extends StatelessWidget {
     final videoEnlace = Provider.of<VideoEnlace>(context);
 
     final moviesProvider = Provider.of<MoviesProvider>(context);
-    int indexMovie = moviesProvider.popularMoviesVideo
-        .indexWhere((element) => element.id == movie.id);
 
     return Stack(
       alignment: Alignment.center,

@@ -20,7 +20,7 @@ class MovieSearchDelegate extends SearchDelegate {
         textSelectionTheme:
             TextSelectionThemeData(cursorColor: MyColors.colorIcon),
         textTheme: TextTheme(
-            headline6: TextStyle(
+            headlineMedium: TextStyle(
                 color: Colors.black87,
                 fontFamily: 'CarterOne',
                 fontWeight: FontWeight.w100,

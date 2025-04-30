@@ -248,11 +248,11 @@ class DetailsMovie extends StatelessWidget {
                   Text(movie.title,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline5),
+                      style: Theme.of(context).textTheme.headlineMedium),
                   Text(movie.originalTitle,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.subtitle1),
+                      style: Theme.of(context).textTheme.headlineMedium),
                   SizedBox(
                     height: 40,
                   ),

@@ -93,30 +93,26 @@ class _BotDetalles extends StatelessWidget {
                     personResponse: personResponse),
                 SizedBox(height: 20),
                 _DatosPersona(
-                  titulo: 'Fecha de Nacimiento',
-                  texto: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(width: 5),
-                      Text(
-                        '${personResponse.birthday!.day}',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      Text(
-                        ' / ${personResponse.birthday!.month}',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      Text(
-                        ' / ${personResponse.birthday!.year}',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                    ],
-                  ),
-                  color1: Colors.blue,
-                  color2: Colors.purple,
-                  icon: Icons.date_range_outlined,
-                  personResponse: personResponse,
-                ),
+                    titulo: 'Fecha de Nacimiento',
+                    texto: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(width: 5),
+                        Text('${personResponse.birthday!.day}',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 25)),
+                        Text(' / ${personResponse.birthday!.month}',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 25)),
+                        Text(' / ${personResponse.birthday!.year}',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 25)),
+                      ],
+                    ),
+                    color1: Colors.blue,
+                    color2: Colors.purple,
+                    icon: Icons.date_range_outlined,
+                    personResponse: personResponse),
                 SizedBox(height: 20),
               ],
             ),
@@ -168,11 +164,8 @@ class _DatosPersona extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              gradient: LinearGradient(
-                colors: [color1, color2],
-              ),
-            ),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                gradient: LinearGradient(colors: [color1, color2])),
             child: Column(
               children: [
                 Text(
