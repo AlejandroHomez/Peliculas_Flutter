@@ -31,17 +31,12 @@ dependencies:
   http: ^0.13.3
   provider: ^5.0.0
   video_player: ^2.2.5
-  youtube_player_flutter: ^8.0.0
+  youtube_player_flutter: ^9.1.1
   animate_do: ^2.0.0
   share: ^2.0.4
   url_launcher: ^6.0.10
   shared_preferences: ^2.0.6
   font_awesome_flutter: ^9.1.0
-
-
-
-
-
 
 dev_dependencies:
   flutter_test:

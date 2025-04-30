@@ -120,7 +120,7 @@ class _CrearCards extends StatelessWidget {
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
-                          style: Theme.of(context).textTheme.overline,
+                          style: Theme.of(context).textTheme.displayMedium,
                         )),
                   ],
                 ),
