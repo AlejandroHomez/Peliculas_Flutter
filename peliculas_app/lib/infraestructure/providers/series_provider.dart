@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:peliculas_app/peliculas_app.dart';
 
 class SeriesProvider extends ChangeNotifier {
-  String _apiKey = '5e17a1ad7031a91705fb9a44f64eb3d5';
+  String _apiKey = dotenv.env['SERIES_API_KEY'] ?? '';
   String _baseUrl = 'api.themoviedb.org';
   String _language = 'es-ES';
 
