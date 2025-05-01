@@ -23,6 +23,8 @@ dependencies:
   url_launcher: ^6.0.10
   shared_preferences: ^2.0.5
   font_awesome_flutter: ^9.1.0
+  # google_mobile_ads: ^6.0.0
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -52,4 +54,5 @@ flutter:
 
   assets:
     - data/genres_movies.json
+    - assets/.env
     - assets/

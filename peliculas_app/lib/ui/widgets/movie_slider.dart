@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peliculas_app/ui/helpers/helpers.dart';
-import 'package:peliculas_app/ui/models/movie.dart';
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 class MovieSlider extends StatefulWidget {
   final List<Movie> movies;

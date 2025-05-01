@@ -3,12 +3,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:peliculas_app/ui/widgets/customPainters/animation_custom_painter_linea.dart';
-import 'package:peliculas_app/ui/helpers/helpers.dart';
-import 'package:peliculas_app/ui/models/movie.dart';
-import 'package:peliculas_app/ui/models/video_movie_response.dart';
-import 'package:peliculas_app/infraestructure/providers/movies_provider.dart';
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';

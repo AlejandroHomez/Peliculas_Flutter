@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:peliculas_app/ui/models/video_movie_response.dart';
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

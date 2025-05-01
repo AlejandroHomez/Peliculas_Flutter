@@ -1,15 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
-import 'package:peliculas_app/ui/widgets/customPainters/customs.dart';
-import 'package:peliculas_app/ui/helpers/helpers.dart';
-import 'package:peliculas_app/infraestructure/providers/providers.dart';
-import 'package:peliculas_app/ui/screens/screens.dart';
-import 'package:peliculas_app/ui/search/search_delegate.dart';
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
-
-import 'package:peliculas_app/ui/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

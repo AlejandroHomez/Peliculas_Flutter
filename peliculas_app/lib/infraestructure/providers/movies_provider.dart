@@ -1,16 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:peliculas_app/ui/models/models.dart';
-import 'package:peliculas_app/ui/models/person_response.dart';
-import 'package:peliculas_app/ui/models/search_response.dart';
-import 'package:peliculas_app/ui/models/topRate_response.dart';
-import 'package:peliculas_app/ui/models/upcoming_response.dart';
-import 'package:peliculas_app/ui/models/video_movie_response.dart';
-import 'package:peliculas_app/infraestructure/preferencias/preferencias_usuario.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MoviesProvider extends ChangeNotifier {
-  String _apiKey = '5e17a1ad7031a91705fb9a44f64eb3d5';
+  String _apiKey = dotenv.env['MOVIES_API_KEY'] ?? '';
   String _baseUrl = 'api.themoviedb.org';
   String _language = 'es-ES';
 

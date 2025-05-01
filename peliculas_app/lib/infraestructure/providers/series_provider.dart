@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:peliculas_app/ui/models/popular_serieResponse.dart';
-import 'package:peliculas_app/ui/models/serie.dart';
 import 'package:http/http.dart' as http;
-import 'package:peliculas_app/ui/models/topRated_Series.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 class SeriesProvider extends ChangeNotifier {
   String _apiKey = '5e17a1ad7031a91705fb9a44f64eb3d5';

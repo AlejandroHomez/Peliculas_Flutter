@@ -1,10 +1,8 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
-
 import 'package:flutter/material.dart';
-import 'package:peliculas_app/ui/models/models.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 class Animation_CustomPainer extends StatefulWidget {
   final Movie movie;

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
-import 'package:peliculas_app/ui/models/serie.dart';
 import "dart:async";
 
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 class SeriesView extends StatefulWidget {
   final Function onNextPage;

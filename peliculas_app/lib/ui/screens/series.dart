@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
-import 'package:peliculas_app/ui/helpers/routes.dart';
-import 'package:peliculas_app/ui/models/serie.dart';
-import 'package:peliculas_app/infraestructure/providers/series_provider.dart';
-import 'package:peliculas_app/ui/screens/screens.dart';
-import 'package:peliculas_app/ui/search/search_delegate.dart';
-import 'package:peliculas_app/ui/widgets/widgets.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 import 'package:provider/provider.dart';
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
 
 class SeriesPage extends StatefulWidget {
   @override

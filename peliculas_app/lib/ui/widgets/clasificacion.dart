@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:peliculas_app/ui/models/genre_response.dart';
-import 'package:peliculas_app/infraestructure/providers/movies_provider.dart';
-import 'package:peliculas_app/infraestructure/tokens/tokens.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 import 'package:provider/provider.dart';
 
