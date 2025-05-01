@@ -16,60 +16,62 @@ class ActorScreen extends StatelessWidget {
         backgroundColor: MyColors.transparent,
         elevation: 0,
         leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(
-              Icons.arrow_back_ios_new_rounded,
-              color: MyColors.grey3,
-            )),
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: MyColors.grey3,
+          ),
+        ),
       ),
       extendBodyBehindAppBar: true,
       body: FutureBuilder(
-          future: moviesProvider.getActoresMovie(person.id),
-          builder: (_, AsyncSnapshot<PersonResponse> snapshot) {
-            if (snapshot.hasError) {
-              return Container(
-                width: double.infinity,
-                height: double.infinity,
-                child: Center(
-                  child: Text(
-                    'No hay información',
-                    style: TextStyle(fontSize: 25, fontFamily: 'CarterOne'),
-                  ),
-                ),
-              );
-            }
-            if (!snapshot.hasData) {
-              return Container(
-                width: double.infinity,
-                height: 200,
-                child: CupertinoActivityIndicator(
-                  radius: 30,
-                ),
-              );
-            }
-
-            PersonResponse personResponse = snapshot.data!;
-
-            final size = MediaQuery.of(context).size;
-
-            return Builder(
-              builder: (context) => Container(
-                color: MyColors.grey2,
-                child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
-                  child: Column(
-                    children: [
-                      _TopDetalles(
-                          size: size,
-                          person: person,
-                          personResponse: personResponse),
-                      _BotDetalles(personResponse: personResponse),
-                    ],
-                  ),
+        future: moviesProvider.getActoresMovie(person.id),
+        builder: (_, AsyncSnapshot<PersonResponse> snapshot) {
+          if (snapshot.hasError) {
+            return Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: Center(
+                child: Text(
+                  'No hay información',
+                  style: TextStyle(fontSize: 25, fontFamily: 'CarterOne'),
                 ),
               ),
             );
-          }),
+          }
+          if (!snapshot.hasData) {
+            return Container(
+              width: double.infinity,
+              height: 200,
+              child: CupertinoActivityIndicator(
+                radius: 30,
+              ),
+            );
+          }
+
+          PersonResponse personResponse = snapshot.data!;
+
+          final size = MediaQuery.of(context).size;
+
+          return Builder(
+            builder: (context) => Container(
+              color: MyColors.grey2,
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    _TopDetalles(
+                        size: size,
+                        person: person,
+                        personResponse: personResponse),
+                    _BotDetalles(personResponse: personResponse),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
@@ -109,15 +111,18 @@ class _BotDetalles extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(width: 5),
-                        Text('${personResponse.birthday!.day}',
-                            style:
-                                TextStyle(color: MyColors.white, fontSize: 25)),
-                        Text(' / ${personResponse.birthday!.month}',
-                            style:
-                                TextStyle(color: MyColors.white, fontSize: 25)),
-                        Text(' / ${personResponse.birthday!.year}',
-                            style:
-                                TextStyle(color: MyColors.white, fontSize: 25)),
+                        Text(
+                          '${personResponse.birthday!.day}',
+                          style: TextStyle(color: MyColors.white, fontSize: 25),
+                        ),
+                        Text(
+                          ' / ${personResponse.birthday!.month}',
+                          style: TextStyle(color: MyColors.white, fontSize: 25),
+                        ),
+                        Text(
+                          ' / ${personResponse.birthday!.year}',
+                          style: TextStyle(color: MyColors.white, fontSize: 25),
+                        ),
                       ],
                     ),
                     color1: MyColors.blue,
@@ -130,15 +135,17 @@ class _BotDetalles extends StatelessWidget {
           ),
           FadeInUp(
             child: Container(
-                padding: EdgeInsets.all(15),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30)),
-                    color: MyColors.white),
-                child: Text(personResponse.biography!,
-                    style: TextStyle(), textAlign: TextAlign.justify)),
+              padding: EdgeInsets.all(15),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                  color: MyColors.white),
+              child: Text(personResponse.biography!,
+                  style: TextStyle(), textAlign: TextAlign.justify),
+            ),
           ),
         ],
       ),
@@ -175,8 +182,11 @@ class _DatosPersona extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                gradient: LinearGradient(colors: [color1, color2])),
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+              gradient: LinearGradient(colors: [color1, color2]),
+            ),
             child: Column(
               children: [
                 Text(
@@ -193,12 +203,13 @@ class _DatosPersona extends StatelessWidget {
           Positioned(
             right: -25,
             child: Transform.rotate(
-                angle: -0.2,
-                child: Icon(
-                  icon,
-                  color: Colors.white24,
-                  size: 80,
-                )),
+              angle: -0.2,
+              child: Icon(
+                icon,
+                color: Colors.white24,
+                size: 80,
+              ),
+            ),
           ),
         ],
       ),
@@ -241,7 +252,9 @@ class _TopDetalles extends StatelessWidget {
                 width: 200,
                 decoration: BoxDecoration(
                   color: MyColors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
                 ),
                 child: Center(
                   child: Text(

@@ -34,10 +34,11 @@ class CastingCards extends StatelessWidget {
           width: double.infinity,
           height: 210,
           child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: cast.length,
-              itemBuilder: (_, int index) => _CrearCards(cast[index])),
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemCount: cast.length,
+            itemBuilder: (_, int index) => _CrearCards(cast[index]),
+          ),
         );
       },
     );
@@ -81,28 +82,32 @@ class _CrearCards extends StatelessWidget {
               margin: EdgeInsets.only(top: 7, bottom: 7),
               padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  boxShadow: [
-                    BoxShadow(
-                        color: MyColors.grey3,
-                        blurRadius: 3,
-                        spreadRadius: 0,
-                        offset: Offset(0, 3))
-                  ],
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        MyColors.icon,
-                        Color.fromRGBO(78, 252, 203, 1),
-                        Color.fromRGBO(126, 247, 214, 1),
-                      ])),
+                borderRadius: BorderRadius.circular(25),
+                boxShadow: [
+                  BoxShadow(
+                    color: MyColors.grey3,
+                    blurRadius: 3,
+                    spreadRadius: 0,
+                    offset: Offset(0, 3),
+                  )
+                ],
+                gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      MyColors.icon,
+                      Color.fromRGBO(78, 252, 203, 1),
+                      Color.fromRGBO(126, 247, 214, 1),
+                    ]),
+              ),
               child: Row(
                 children: [
                   CircleAvatar(
                     radius: 13,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
                       child: FadeInImage(
                         placeholder: AssetImage('assets/movieLoad.gif'),
                         image: NetworkImage(actor.fullprofilePath),
@@ -114,14 +119,15 @@ class _CrearCards extends StatelessWidget {
                   ),
                   SizedBox(width: 3),
                   ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 80),
-                      child: Text(
-                        actor.name,
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      )),
+                    constraints: BoxConstraints(maxWidth: 80),
+                    child: Text(
+                      actor.name,
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ),
                 ],
               ),
             )

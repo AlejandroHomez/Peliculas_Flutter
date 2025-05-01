@@ -36,37 +36,40 @@ class _VideoScreen extends State<VideoScreen> {
     final orientation = MediaQuery.of(context).orientation;
 
     return Scaffold(
-        backgroundColor: MyColors.black,
-        body: Stack(
-          children: [
-            Center(
-              child: YoutubePlayer(
-                progressColors: ProgressBarColors(
-                  backgroundColor: MyColors.icon,
-                  playedColor: MyColors.red,
-                ),
-                progressIndicatorColor: MyColors.red,
-                controller: _controller,
-                actionsPadding: const EdgeInsets.only(left: 16.0),
-                bottomActions: [
-                  CurrentPosition(),
-                  const SizedBox(width: 10.0),
-                  ProgressBar(isExpanded: true),
-                  const SizedBox(width: 10.0),
-                  RemainingDuration(),
-                  FullScreenButton(),
-                ],
+      backgroundColor: MyColors.black,
+      body: Stack(
+        children: [
+          Center(
+            child: YoutubePlayer(
+              progressColors: ProgressBarColors(
+                backgroundColor: MyColors.icon,
+                playedColor: MyColors.red,
               ),
+              progressIndicatorColor: MyColors.red,
+              controller: _controller,
+              actionsPadding: const EdgeInsets.only(left: 16.0),
+              bottomActions: [
+                CurrentPosition(),
+                const SizedBox(width: 10.0),
+                ProgressBar(isExpanded: true),
+                const SizedBox(width: 10.0),
+                RemainingDuration(),
+                FullScreenButton(),
+              ],
             ),
-            orientation != Orientation.landscape
-                ? Positioned(
-                    top: 50,
-                    left: 0,
-                    child: IconButton(
-                        onPressed: () => Navigator.pop(context),
-                        icon: Icon(Icons.reply_sharp, color: Colors.white70)))
-                : Container()
-          ],
-        ));
+          ),
+          orientation != Orientation.landscape
+              ? Positioned(
+                  top: 50,
+                  left: 0,
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.reply_sharp, color: Colors.white70),
+                  ),
+                )
+              : Container()
+        ],
+      ),
+    );
   }
 }

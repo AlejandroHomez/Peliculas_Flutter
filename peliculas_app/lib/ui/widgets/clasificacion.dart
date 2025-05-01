@@ -16,16 +16,18 @@ class ClasPeliculas extends StatelessWidget {
     int lengthGenre = genreMovie.length;
     int primerDato = genreMovie[0];
     return Container(
-        padding: EdgeInsets.symmetric(vertical: 6),
-        width: double.infinity,
-        height: 40,
-        // color: MyColors.red,
-        child: ListView.builder(
-            physics: BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemCount: lengthGenre,
-            itemBuilder: (_, int index) =>
-                CrearCategorias(genreMovie[index], lengthGenre, primerDato)));
+      padding: EdgeInsets.symmetric(vertical: 6),
+      width: double.infinity,
+      height: 40,
+      // color: MyColors.red,
+      child: ListView.builder(
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: lengthGenre,
+        itemBuilder: (_, int index) =>
+            CrearCategorias(genreMovie[index], lengthGenre, primerDato),
+      ),
+    );
   }
 }
 
@@ -58,7 +60,9 @@ class CrearCategorias extends StatelessWidget {
 
               return Row(
                 children: [
-                  Container(child: _iconoo(context, genreName[i].id)),
+                  Container(
+                    child: _iconoo(context, genreName[i].id),
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 4.0,
@@ -87,14 +91,18 @@ class CrearCategorias extends StatelessWidget {
                       ),
                       onPressed: () {},
                       style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50))),
-                          backgroundColor:
-                              MaterialStateProperty.all(MyColors.grey2),
-                          elevation: MaterialStateProperty.all(0),
-                          padding:
-                              MaterialStateProperty.all(EdgeInsets.all(5))),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        backgroundColor:
+                            MaterialStateProperty.all(MyColors.grey2),
+                        elevation: MaterialStateProperty.all(0),
+                        padding: MaterialStateProperty.all(
+                          EdgeInsets.all(5),
+                        ),
+                      ),
                     ),
                   ),
                 ],

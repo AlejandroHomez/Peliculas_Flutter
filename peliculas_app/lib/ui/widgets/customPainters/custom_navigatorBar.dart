@@ -69,13 +69,14 @@ class CustomNavigatorBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
-                          onPressed: () =>
-                              Navigator.pushNamed(context, 'trailers'),
-                          icon: Icon(
-                            Icons.local_movies,
-                            size: 35,
-                            color: MyColors.white,
-                          )),
+                        onPressed: () =>
+                            Navigator.pushNamed(context, 'trailers'),
+                        icon: Icon(
+                          Icons.local_movies,
+                          size: 35,
+                          color: MyColors.white,
+                        ),
+                      ),
                       Container(
                         width: 10,
                       ),

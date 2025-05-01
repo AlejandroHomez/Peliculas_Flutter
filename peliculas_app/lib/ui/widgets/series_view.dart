@@ -38,13 +38,14 @@ class _SeriesViewState extends State<SeriesView> {
               itemWidth: size.width * 0.5,
               itemHeight: size.height * 0.5,
               pagination: SwiperPagination(
-                  alignment: Alignment.topRight,
-                  builder: FractionPaginationBuilder(
-                      color: Colors.white30,
-                      activeColor: MyColors.icon,
-                      fontSize: 15,
-                      activeFontSize: 20),
-                  margin: EdgeInsets.all(20)),
+                alignment: Alignment.topRight,
+                builder: FractionPaginationBuilder(
+                    color: Colors.white30,
+                    activeColor: MyColors.icon,
+                    fontSize: 15,
+                    activeFontSize: 20),
+                margin: EdgeInsets.all(20),
+              ),
               itemBuilder: (_, int index) => SliderSeries(widget.series[index]),
             ),
           ]),
@@ -110,8 +111,9 @@ class _SliderSeriesState extends State<SliderSeries> {
             decoration: BoxDecoration(
                 color: MyColors.white,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.black12, spreadRadius: 10, blurRadius: 10)
@@ -137,17 +139,18 @@ class _SliderSeriesState extends State<SliderSeries> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                          margin: EdgeInsets.only(top: 20, right: 10),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: FadeInImage(
-                              placeholder: AssetImage('assets/movieLoad.gif'),
-                              image: NetworkImage(
-                                  widget.serie.fullBackdropPathSerie),
-                              height: 80,
-                              fit: BoxFit.contain,
-                            ),
-                          )),
+                        margin: EdgeInsets.only(top: 20, right: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: FadeInImage(
+                            placeholder: AssetImage('assets/movieLoad.gif'),
+                            image: NetworkImage(
+                                widget.serie.fullBackdropPathSerie),
+                            height: 80,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
                       ConstrainedBox(
                         constraints: BoxConstraints(maxWidth: size.width - 205),
                         child: Center(

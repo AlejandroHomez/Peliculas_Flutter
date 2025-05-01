@@ -16,7 +16,9 @@ class FavoritesPage extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
               border: Border.all(width: 1, color: MyColors.grey3),
             ),
             child: Icon(
@@ -34,7 +36,9 @@ class FavoritesPage extends StatelessWidget {
         decoration: BoxDecoration(
           color: MyColors.grey2,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
         ),
         child: MovieSliderFavorites(
           movies: moviesProvider.favoriteMovies,

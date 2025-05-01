@@ -43,15 +43,21 @@ class Serie {
     return 'https://i.stack.imgur.com/GNhxO.png';
   }
 
-  factory Serie.fromJson(String str) => Serie.fromMap(json.decode(str));
+  factory Serie.fromJson(String str) => Serie.fromMap(
+        json.decode(str),
+      );
 
   factory Serie.fromMap(Map<String, dynamic> json) => Serie(
         backdropPath:
             json["backdrop_path"] == null ? null : json["backdrop_path"],
-        genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
+        genreIds: List<int>.from(
+          json["genre_ids"].map((x) => x),
+        ),
         id: json["id"],
         name: json["name"],
-        originCountry: List<String>.from(json["origin_country"].map((x) => x)),
+        originCountry: List<String>.from(
+          json["origin_country"].map((x) => x),
+        ),
         originalLanguage: json["original_language"],
         originalName: json["original_name"],
         overview: json["overview"],

@@ -23,11 +23,15 @@ class _Animation_CustomPainerState extends State<Animation_CustomPainer_Linea>
 
   @override
   void initState() {
-    controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 5));
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 5),
+    );
 
-    progressAnimation =
-        CurvedAnimation(parent: controller, curve: const Interval(0.0, 1.0));
+    progressAnimation = CurvedAnimation(
+      parent: controller,
+      curve: const Interval(0.0, 1.0),
+    );
 
     controller.addListener(() {
       setState(() {

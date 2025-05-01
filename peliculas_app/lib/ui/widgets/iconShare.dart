@@ -25,7 +25,9 @@ class IconShare extends StatelessWidget {
             decoration: BoxDecoration(
               color: MyColors.white,
               border: Border.all(color: MyColors.grey3),
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
             ),
             child: Icon(
               Icons.share,
@@ -42,10 +44,12 @@ class IconShare extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
-            SharePlus.instance.share(ShareParams(
-              title: 'Mira el trailer de esta pelicula:',
-              text: '\n\nNombre: ${movie.title} \n\nTrailer: $enlace',
-            ));
+            SharePlus.instance.share(
+              ShareParams(
+                title: 'Mira el trailer de esta pelicula:',
+                text: '\n\nNombre: ${movie.title} \n\nTrailer: $enlace',
+              ),
+            );
           },
           child: Container(
             width: 35,
@@ -53,7 +57,9 @@ class IconShare extends StatelessWidget {
             decoration: BoxDecoration(
               color: MyColors.white,
               border: Border.all(color: MyColors.grey3),
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
             ),
             child: Icon(
               Icons.share,

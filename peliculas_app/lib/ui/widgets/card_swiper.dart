@@ -54,9 +54,10 @@ class CardSwiper extends StatelessWidget {
                   right: 10,
                   top: 10,
                   child: Container(
-                      width: 50,
-                      height: 50,
-                      child: Animation_CustomPainer(movie)),
+                    width: 50,
+                    height: 50,
+                    child: Animation_CustomPainer(movie),
+                  ),
                 )
               ],
             ),

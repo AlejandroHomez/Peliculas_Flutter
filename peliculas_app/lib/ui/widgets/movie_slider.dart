@@ -50,23 +50,26 @@ class _MovieSliderState extends State<MovieSlider> {
             Padding(
               padding: EdgeInsets.only(left: 10, bottom: 10, top: 5),
               child: Title(
-                  color: MyColors.red,
-                  child: Text(
-                    widget.title!,
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'CarterOne',
-                        color: Colors.black87),
-                  )),
+                color: MyColors.red,
+                child: Text(
+                  widget.title!,
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'CarterOne',
+                      color: Colors.black87),
+                ),
+              ),
             ),
           Expanded(
-              child: ListView.builder(
-                  controller: scrollController,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: widget.movies.length,
-                  itemBuilder: (_, int index) =>
-                      MovieHorizontal(widget.movies[index]))),
+            child: ListView.builder(
+              controller: scrollController,
+              scrollDirection: Axis.horizontal,
+              itemCount: widget.movies.length,
+              itemBuilder: (_, int index) =>
+                  MovieHorizontal(widget.movies[index]),
+            ),
+          ),
         ],
       ),
     );

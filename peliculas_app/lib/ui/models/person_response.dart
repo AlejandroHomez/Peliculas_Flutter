@@ -37,12 +37,15 @@ class PersonResponse {
   double? popularity;
   String? profilePath;
 
-  factory PersonResponse.fromJson(String str) =>
-      PersonResponse.fromMap(json.decode(str));
+  factory PersonResponse.fromJson(String str) => PersonResponse.fromMap(
+        json.decode(str),
+      );
 
   factory PersonResponse.fromMap(Map<String, dynamic> json) => PersonResponse(
         adult: json["adult"],
-        alsoKnownAs: List<String>.from(json["also_known_as"].map((x) => x)),
+        alsoKnownAs: List<String>.from(
+          json["also_known_as"].map((x) => x),
+        ),
         biography: json["biography"],
         birthday: DateTime.parse(json["birthday"]),
         deathday: json["deathday"],

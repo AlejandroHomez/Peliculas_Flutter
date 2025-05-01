@@ -13,20 +13,30 @@ class VideoResponse {
   int id;
   List<Video>? results;
 
-  factory VideoResponse.fromJson(String str) =>
-      VideoResponse.fromMap(json.decode(str));
+  factory VideoResponse.fromJson(String str) => VideoResponse.fromMap(
+        json.decode(str),
+      );
 
-  String toJson() => json.encode(toMap());
+  String toJson() => json.encode(
+        toMap(),
+      );
 
   factory VideoResponse.fromMap(Map<String, dynamic> json) => VideoResponse(
         id: json["id"],
-        results:
-            List<Video>.from(json["results"].map((x) => Video.fromMap(x))),
+        results: List<Video>.from(
+          json["results"].map(
+            (x) => Video.fromMap(x),
+          ),
+        ),
       );
 
   Map<String, dynamic> toMap() => {
         "id": id,
-        "results": List<dynamic>.from(results!.map((x) => x.toMap())),
+        "results": List<dynamic>.from(
+          results!.map(
+            (x) => x.toMap(),
+          ),
+        ),
       };
 }
 
@@ -55,9 +65,13 @@ class Video {
   // DateTime? publishedAt;
   String? id;
 
-  factory Video.fromJson(String str) => Video.fromMap(json.decode(str));
+  factory Video.fromJson(String str) => Video.fromMap(
+        json.decode(str),
+      );
 
-  String toJson() => json.encode(toMap());
+  String toJson() => json.encode(
+        toMap(),
+      );
 
   factory Video.fromMap(Map<String, dynamic> json) => Video(
         iso6391: json["iso_639_1"],

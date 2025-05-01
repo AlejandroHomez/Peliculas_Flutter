@@ -24,8 +24,10 @@ class _RulettePageState extends State<RulettePage>
   @override
   void initState() {
     moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 5));
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 5),
+    );
 
     movies = moviesProvider.popularMovies;
     movies.addAll(moviesProvider.topRateMovies);
@@ -250,7 +252,9 @@ class CardRoulette extends StatelessWidget {
               ),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
               child: FadeInImage(
                 placeholder: AssetImage('assets/movieLoad.gif'),
                 image: NetworkImage(movie.fullPosterImg),

@@ -13,7 +13,9 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   final Widget? rightContent;
 
   @override
-  Size get preferredSize => Size.fromHeight(_getPreferredSize());
+  Size get preferredSize => Size.fromHeight(
+        _getPreferredSize(),
+      );
 
   double _getPreferredSize() => kToolbarHeight;
 

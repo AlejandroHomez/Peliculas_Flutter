@@ -65,12 +65,15 @@ class _Mensaje extends StatelessWidget {
   Widget build(BuildContext context) {
     return ZoomIn(
       child: Center(
-          child: Text(
-        'Aun no tienes favoritos',
-        style: TextStyle(
-            fontFamily: 'AndadaPro', fontSize: 35, color: Colors.grey.shade500),
-        textAlign: TextAlign.center,
-      )),
+        child: Text(
+          'Aun no tienes favoritos',
+          style: TextStyle(
+              fontFamily: 'AndadaPro',
+              fontSize: 35,
+              color: Colors.grey.shade500),
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }
@@ -96,15 +99,22 @@ class MovieFav extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: MyColors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                color: MyColors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20),
+                ),
+              ),
               margin: EdgeInsets.only(bottom: 10, left: 15, right: 15),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      FadeInDown(child: _TituloMovie(movie: movie)),
-                      Expanded(child: Container()),
+                      FadeInDown(
+                        child: _TituloMovie(movie: movie),
+                      ),
+                      Expanded(
+                        child: Container(),
+                      ),
                       GestureDetector(
                         onTap: () {
                           moviesProvider.eliminarFavoritos(movie);
@@ -114,9 +124,11 @@ class MovieFav extends StatelessWidget {
                           width: 35,
                           height: 35,
                           decoration: BoxDecoration(
-                              color: Colors.redAccent,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8))),
+                            color: Colors.redAccent,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(8),
+                            ),
+                          ),
                           child: Icon(
                             FontAwesomeIcons.solidTrashAlt,
                             size: 22,
@@ -145,21 +157,25 @@ class MovieFav extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: Colors.grey.shade100,
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      height: 80,
-                      child: Column(
-                        children: [
-                          Text(
-                            'Promedio de votos',
-                            style: TextStyle(fontFamily: 'AndadaPro'),
-                          ),
-                          Animation_CustomPainer_Linea(movie),
-                        ],
-                      )),
+                    margin: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade100,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    height: 80,
+                    child: Column(
+                      children: [
+                        Text(
+                          'Promedio de votos',
+                          style: TextStyle(fontFamily: 'AndadaPro'),
+                        ),
+                        Animation_CustomPainer_Linea(movie),
+                      ],
+                    ),
+                  ),
                   _OverView(movie: movie),
                 ],
               ),
@@ -193,10 +209,11 @@ class MovieFav extends StatelessWidget {
                             height: 60,
                             width: 60,
                             decoration: BoxDecoration(
-                                color: MyColors.transparent,
-                                borderRadius: BorderRadius.circular(100),
-                                border: Border.all(
-                                    color: MyColors.white, width: 2)),
+                              color: MyColors.transparent,
+                              borderRadius: BorderRadius.circular(100),
+                              border:
+                                  Border.all(color: MyColors.white, width: 2),
+                            ),
                             child: Icon(
                               Icons.play_arrow,
                               size: 35,
@@ -254,7 +271,10 @@ class _TituloMovie extends StatelessWidget {
       height: 40,
       width: 210,
       decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: MyColors.item))),
+        border: Border(
+          bottom: BorderSide(color: MyColors.item),
+        ),
+      ),
       child: Center(
         child: Text(
           movie.title,
@@ -291,7 +311,9 @@ class _IconShare extends StatelessWidget {
             decoration: BoxDecoration(
               color: MyColors.white,
               border: Border.all(color: MyColors.grey3),
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
             ),
             child: Icon(
               Icons.share,
@@ -321,7 +343,9 @@ class _IconShare extends StatelessWidget {
             decoration: BoxDecoration(
               color: MyColors.white,
               border: Border.all(color: MyColors.grey3),
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
             ),
             child: Icon(
               Icons.share,

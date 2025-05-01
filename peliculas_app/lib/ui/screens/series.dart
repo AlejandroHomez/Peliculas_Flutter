@@ -51,8 +51,10 @@ class _SeriesPageState extends State<SeriesPage> {
           onPressed: pushNamedAndRemoveUntil('home', context, null),
         ),
         rightContent: GestureDetector(
-          onTap: () =>
-              showSearch(context: context, delegate: MovieSearchDelegate()),
+          onTap: () => showSearch(
+            context: context,
+            delegate: MovieSearchDelegate(),
+          ),
           child: CircleAvatar(
             backgroundColor: MyColors.icon,
             child: Icon(
@@ -96,8 +98,9 @@ class _SeriesPageState extends State<SeriesPage> {
                   padding: EdgeInsets.all(10),
                   height: 125,
                   decoration: BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.circular(20)),
+                    color: Colors.white54,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   child: Column(
                     children: [
                       Text(
@@ -128,9 +131,10 @@ class Page1 extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 0),
-              child: SeriesViewContainer(
-                  "Populares", seriesProvider.popularSerie)),
+            margin: EdgeInsets.symmetric(horizontal: 0),
+            child:
+                SeriesViewContainer("Populares", seriesProvider.popularSerie),
+          ),
         ),
       ],
     );
@@ -145,9 +149,10 @@ class Page2 extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 0),
-              child: SeriesViewContainer(
-                  "Recomendadas", seriesProvider.topRatedSerie)),
+            margin: EdgeInsets.symmetric(horizontal: 0),
+            child: SeriesViewContainer(
+                "Recomendadas", seriesProvider.topRatedSerie),
+          ),
         ),
       ],
     );
@@ -162,9 +167,10 @@ class Page3 extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 0),
-              child: SeriesViewContainerPage2(
-                  "Mas Series", seriesProvider.popularSerie2)),
+            margin: EdgeInsets.symmetric(horizontal: 0),
+            child: SeriesViewContainerPage2(
+                "Mas Series", seriesProvider.popularSerie2),
+          ),
         ),
       ],
     );
@@ -196,7 +202,10 @@ class SeriesViewContainer extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
-                  color: Colors.black26, blurRadius: 10, offset: Offset(0, 10))
+                color: Colors.black26,
+                blurRadius: 10,
+                offset: Offset(0, 10),
+              )
             ],
           ),
           child: Text(

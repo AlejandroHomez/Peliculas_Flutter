@@ -15,18 +15,20 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: MyColors.white),
-        primaryIconTheme: IconThemeData(color: MyColors.icon),
-        textSelectionTheme: TextSelectionThemeData(cursorColor: MyColors.icon),
-        textTheme: TextTheme(
-            headlineMedium: TextStyle(
-                color: Colors.black87,
-                fontFamily: 'CarterOne',
-                fontWeight: FontWeight.w100,
-                fontSize: 23)),
-        hintColor: Colors.black38,
-        primaryColor: MyColors.white,
-        canvasColor: Color.fromRGBO(186, 255, 240, 1));
+      appBarTheme: AppBarTheme(backgroundColor: MyColors.white),
+      primaryIconTheme: IconThemeData(color: MyColors.icon),
+      textSelectionTheme: TextSelectionThemeData(cursorColor: MyColors.icon),
+      textTheme: TextTheme(
+        headlineMedium: TextStyle(
+            color: Colors.black87,
+            fontFamily: 'CarterOne',
+            fontWeight: FontWeight.w100,
+            fontSize: 23),
+      ),
+      hintColor: Colors.black38,
+      primaryColor: MyColors.white,
+      canvasColor: Color.fromRGBO(186, 255, 240, 1),
+    );
   }
 
   @override
@@ -45,13 +47,14 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          close(context, null);
-        },
-        icon: Icon(
-          Icons.arrow_back_rounded,
-          color: MyColors.black,
-        ));
+      onPressed: () {
+        close(context, null);
+      },
+      icon: Icon(
+        Icons.arrow_back_rounded,
+        color: MyColors.black,
+      ),
+    );
   }
 
   @override
@@ -62,16 +65,17 @@ class MovieSearchDelegate extends SearchDelegate {
   Widget _emptyContainer() {
     return Container(
       decoration: BoxDecoration(
-          // color: Color.fromRGBO(186, 255, 240, 1),
-          gradient: LinearGradient(
-        begin: Alignment.bottomCenter,
-        end: Alignment.topCenter,
-        colors: [
-          Color.fromRGBO(48, 164, 139, 1),
-          Color.fromRGBO(68, 226, 192, 1),
-          Color.fromRGBO(92, 255, 220, 1),
-        ],
-      )),
+        // color: Color.fromRGBO(186, 255, 240, 1),
+        gradient: LinearGradient(
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          colors: [
+            Color.fromRGBO(48, 164, 139, 1),
+            Color.fromRGBO(68, 226, 192, 1),
+            Color.fromRGBO(92, 255, 220, 1),
+          ],
+        ),
+      ),
       child: Center(
         child: Icon(
           Icons.movie_filter_rounded,
@@ -98,8 +102,9 @@ class MovieSearchDelegate extends SearchDelegate {
         final movies = snapshot.data!;
 
         return ListView.builder(
-            itemCount: movies.length,
-            itemBuilder: (_, int index) => _MovieItems(movies[index]));
+          itemCount: movies.length,
+          itemBuilder: (_, int index) => _MovieItems(movies[index]),
+        );
       },
     );
   }
@@ -119,7 +124,9 @@ class _MovieItems extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 2),
           decoration: BoxDecoration(
             color: MyColors.white,
-            borderRadius: BorderRadius.only(bottomRight: Radius.circular(25)),
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(25),
+            ),
             // gradient: LinearGradient(colors: [
             //   Color.fromRGBO(48, 164, 139, 1),
             //   Color.fromRGBO(68, 226, 192, 1),
@@ -151,23 +158,26 @@ class _MovieItems extends StatelessWidget {
           ),
         ),
         Positioned(
-            left: 89.5,
-            // top: 5,
-            bottom: -5,
-            child: Icon(Icons.star, color: MyColors.white, size: 46)),
+          left: 89.5,
+          // top: 5,
+          bottom: -5,
+          child: Icon(Icons.star, color: MyColors.white, size: 46),
+        ),
         Positioned(
-            left: 90,
-            // top: 5,
-            bottom: -5,
-            child: Icon(Icons.star, color: Colors.amber, size: 45)),
+          left: 90,
+          // top: 5,
+          bottom: -5,
+          child: Icon(Icons.star, color: Colors.amber, size: 45),
+        ),
         Positioned(
-            left: 106,
-            // top: 5,
-            bottom: 10,
-            child: Text(
-              '${movie.voteAverage}',
-              style: TextStyle(fontSize: 9, fontFamily: 'CarterOne'),
-            )),
+          left: 106,
+          // top: 5,
+          bottom: 10,
+          child: Text(
+            '${movie.voteAverage}',
+            style: TextStyle(fontSize: 9, fontFamily: 'CarterOne'),
+          ),
+        ),
       ],
     );
   }

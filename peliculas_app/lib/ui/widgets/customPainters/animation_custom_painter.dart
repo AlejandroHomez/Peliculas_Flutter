@@ -24,11 +24,15 @@ class _Animation_CustomPainerState extends State<Animation_CustomPainer>
 
   @override
   void initState() {
-    controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 5));
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 5),
+    );
 
-    progressAnimation =
-        CurvedAnimation(parent: controller, curve: const Interval(0.0, 1.0));
+    progressAnimation = CurvedAnimation(
+      parent: controller,
+      curve: const Interval(0.0, 1.0),
+    );
 
     controller.addListener(() {
       setState(() {
@@ -48,41 +52,43 @@ class _Animation_CustomPainerState extends State<Animation_CustomPainer>
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Stack(
-      alignment: Alignment.center,
-      children: [
-        AnimatedBuilder(
-          animation: controller,
-          builder: (context, Widget? child) {
-            return Container(
-              padding: const EdgeInsets.all(5),
-              child: Stack(
-                children: [
-                  Container(
-                    margin: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                        color: Colors.black12, shape: BoxShape.circle),
-                    child: Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          AnimatedBuilder(
+            animation: controller,
+            builder: (context, Widget? child) {
+              return Container(
+                padding: const EdgeInsets.all(5),
+                child: Stack(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          color: Colors.black12, shape: BoxShape.circle),
+                      child: Center(
                         child: Text(
-                      '${(widget.movie.voteAverage * 10).toInt()}%',
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                          color: MyColors.white,
-                          fontFamily: 'AndadaPro'),
-                    )),
-                  ),
-                  CustomPaint(
-                    size: const Size.fromHeight(200),
-                    painter: _ProgressPainter(widget.movie.voteAverage),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      ],
-    ));
+                          '${(widget.movie.voteAverage * 10).toInt()}%',
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: MyColors.white,
+                              fontFamily: 'AndadaPro'),
+                        ),
+                      ),
+                    ),
+                    CustomPaint(
+                      size: const Size.fromHeight(200),
+                      painter: _ProgressPainter(widget.movie.voteAverage),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
 

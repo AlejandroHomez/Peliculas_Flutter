@@ -12,66 +12,75 @@ class DetailsScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-        body: Stack(
-      children: [
-        SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Stack(
-            children: [
-              _AppBarDetails(movie),
-              Container(
-                margin: EdgeInsets.only(top: size.height * 0.25),
-                width: double.infinity,
-                decoration: BoxDecoration(
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Stack(
+              children: [
+                _AppBarDetails(movie),
+                Container(
+                  margin: EdgeInsets.only(top: size.height * 0.25),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
                     color: MyColors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20))),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        DetailsMovie(movie),
-                        Positioned(
-                          bottom: 10,
-                          right: 15,
-                          child: Row(
-                            children: [
-                              Icon(
-                                FontAwesomeIcons.solidStar,
-                                size: 15,
-                                color: Colors.yellow.shade600,
-                              ),
-                              Container(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          DetailsMovie(movie),
+                          Positioned(
+                            bottom: 10,
+                            right: 15,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.solidStar,
+                                  size: 15,
+                                  color: Colors.yellow.shade600,
+                                ),
+                                Container(
                                   width: 150,
                                   height: 30,
-                                  child: Animation_CustomPainer_Linea(movie)),
-                              SizedBox(width: 15),
-                              _IconFavorite(movie)
-                            ],
+                                  child: Animation_CustomPainer_Linea(movie),
+                                ),
+                                SizedBox(width: 15),
+                                _IconFavorite(movie)
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    ZoomIn(child: ClasPeliculas(movie.genreIds)),
-                    _OverView(
-                      movie: movie,
-                    ),
-                    SizedBox(height: 5),
-                    FadeInRightBig(child: CastingCards(movie.id)),
-                    SizedBox(height: 80)
-                  ],
-                ),
-              )
-            ],
+                        ],
+                      ),
+                      ZoomIn(
+                        child: ClasPeliculas(movie.genreIds),
+                      ),
+                      _OverView(
+                        movie: movie,
+                      ),
+                      SizedBox(height: 5),
+                      FadeInRightBig(
+                        child: CastingCards(movie.id),
+                      ),
+                      SizedBox(height: 80)
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        CustomNavigatorBar(
-          centerIconPressed: () => Navigator.of(context)
-              .pushNamedAndRemoveUntil('home', (Route<dynamic> route) => false),
-        )
-      ],
-    ));
+          CustomNavigatorBar(
+            centerIconPressed: () => Navigator.of(context)
+                .pushNamedAndRemoveUntil(
+                    'home', (Route<dynamic> route) => false),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -141,10 +150,10 @@ class _AppBarDetailsState extends State<_AppBarDetails> {
                           height: 60,
                           width: 60,
                           decoration: BoxDecoration(
-                              color: MyColors.icon,
-                              borderRadius: BorderRadius.circular(100),
-                              border:
-                                  Border.all(color: MyColors.white, width: 2)),
+                            color: MyColors.icon,
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(color: MyColors.white, width: 2),
+                          ),
                           child: Icon(
                             Icons.play_arrow,
                             size: 35,
@@ -315,8 +324,11 @@ class _IconFavorite extends StatelessWidget {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-                color: MyColors.item,
-                borderRadius: BorderRadius.all(Radius.circular(8))),
+              color: MyColors.item,
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+            ),
             child: Pulse(
               duration: Duration(milliseconds: 400),
               child: Icon(FontAwesomeIcons.solidBookmark,
@@ -336,8 +348,11 @@ class _IconFavorite extends StatelessWidget {
         width: 40,
         height: 40,
         decoration: BoxDecoration(
-            color: MyColors.icon,
-            borderRadius: BorderRadius.all(Radius.circular(8))),
+          color: MyColors.icon,
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+        ),
         child: ElasticIn(
           child: Icon(
             FontAwesomeIcons.bookmark,

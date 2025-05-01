@@ -5,20 +5,21 @@ class InicioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: MyColors.transparent,
-          toolbarHeight: 10,
-        ),
-        extendBodyBehindAppBar: true,
-        extendBody: true,
-        body: PageView(
-          scrollDirection: Axis.vertical,
-          children: [
-            BackPage1(),
-            HomeScreen(),
-          ],
-        ));
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: MyColors.transparent,
+        toolbarHeight: 10,
+      ),
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+      body: PageView(
+        scrollDirection: Axis.vertical,
+        children: [
+          BackPage1(),
+          HomeScreen(),
+        ],
+      ),
+    );
   }
 }
 
@@ -26,39 +27,40 @@ class BackPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Stack(
-      children: [
-        DecorationInico(),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 15),
-            SafeArea(
-              child: Text(
-                "Información de\n Películas y Series",
-                style: TextStyle(fontSize: 30, fontFamily: 'CarterOne'),
-                textAlign: TextAlign.center,
-                maxLines: 2,
-              ),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            ButtonsContainer(),
-            Center(
-              child: IconButton(
-                onPressed: () => Navigator.pushNamed(context, 'home'),
-                icon: Icon(
-                  Icons.expand_more,
-                  size: 40,
+      child: Stack(
+        children: [
+          DecorationInico(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 15),
+              SafeArea(
+                child: Text(
+                  "Información de\n Películas y Series",
+                  style: TextStyle(fontSize: 30, fontFamily: 'CarterOne'),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
                 ),
               ),
-            ),
-          ],
-        )
-      ],
-    ));
+              Expanded(
+                child: Container(),
+              ),
+              ButtonsContainer(),
+              Center(
+                child: IconButton(
+                  onPressed: () => Navigator.pushNamed(context, 'home'),
+                  icon: Icon(
+                    Icons.expand_more,
+                    size: 40,
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -96,10 +98,13 @@ class ButtonsContainer extends StatelessWidget {
                 );
               },
               child: GestureDetector(
-                  onTap: () => showSearch(
-                      context: context, delegate: MovieSearchDelegate()),
-                  child: DetailsButtons(
-                      title: "Buscar una Pelicula", icon: Icons.search)),
+                onTap: () => showSearch(
+                  context: context,
+                  delegate: MovieSearchDelegate(),
+                ),
+                child: DetailsButtons(
+                    title: "Buscar una Pelicula", icon: Icons.search),
+              ),
             ),
             TweenAnimationBuilder<double>(
               tween: Tween(begin: 1.0, end: 0.0),
@@ -112,9 +117,10 @@ class ButtonsContainer extends StatelessWidget {
                 );
               },
               child: GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, 'home'),
-                  child: DetailsButtons(
-                      title: "Información de Peliculas", icon: Icons.movie)),
+                onTap: () => Navigator.pushNamed(context, 'home'),
+                child: DetailsButtons(
+                    title: "Información de Peliculas", icon: Icons.movie),
+              ),
             ),
             TweenAnimationBuilder<double>(
               tween: Tween(begin: 1.0, end: 0.0),

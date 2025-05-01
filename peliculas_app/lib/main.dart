@@ -8,25 +8,30 @@ void main() async {
   final pref = PreferenciasUsurario();
   await pref.initPref();
 
-  runApp(AppState());
+  runApp(
+    AppState(),
+  );
 }
 
 class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider(
-        create: (_) => MoviesProvider(),
-        lazy: false,
-      ),
-      ChangeNotifierProvider(
-        create: (_) => SeriesProvider(),
-        lazy: false,
-      ),
-      ChangeNotifierProvider(
-        create: (_) => VideoEnlace(),
-      )
-    ], child: MyApp());
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => MoviesProvider(),
+          lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SeriesProvider(),
+          lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => VideoEnlace(),
+        )
+      ],
+      child: MyApp(),
+    );
   }
 }
 

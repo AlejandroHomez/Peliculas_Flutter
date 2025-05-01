@@ -121,21 +121,25 @@ class _HomeScreenState extends State<HomeScreen>
                           title: 'Recientes',
                         ),
                         ElasticIn(
-                            animate: mostrarAnimacion1,
-                            child: _BotonInicio(
-                                'Trailers',
-                                () =>
-                                    Navigator.pushNamed(context, 'trailers'))),
+                          animate: mostrarAnimacion1,
+                          child: _BotonInicio(
+                            'Trailers',
+                            () => Navigator.pushNamed(context, 'trailers'),
+                          ),
+                        ),
                         MovieSlider(
                           movies: moviesProvider.popularMovies,
                           onNextPage: () => moviesProvider.getPopularMovies(),
                           title: 'Populares',
                         ),
                         ElasticIn(
-                            duration: Duration(seconds: 2),
-                            animate: mostrarAnimacion2,
-                            child: _BotonInicio('Series',
-                                () => Navigator.pushNamed(context, 'series'))),
+                          duration: Duration(seconds: 2),
+                          animate: mostrarAnimacion2,
+                          child: _BotonInicio(
+                            'Series',
+                            () => Navigator.pushNamed(context, 'series'),
+                          ),
+                        ),
                         MovieSlider(
                           onNextPage: () => moviesProvider.getTopRatioMovies(),
                           movies: moviesProvider.topRateMovies,
@@ -183,8 +187,11 @@ class _BotonInicio extends StatelessWidget {
         width: double.infinity,
         height: 100,
         decoration: BoxDecoration(
-            color: MyColors.icon,
-            borderRadius: BorderRadius.all(Radius.circular(16))),
+          color: MyColors.icon,
+          borderRadius: BorderRadius.all(
+            Radius.circular(16),
+          ),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -197,8 +204,11 @@ class _BotonInicio extends StatelessWidget {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                  color: MyColors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
+                color: MyColors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
               child: Icon(
                 Icons.arrow_forward_ios_rounded,
                 color: MyColors.icon,

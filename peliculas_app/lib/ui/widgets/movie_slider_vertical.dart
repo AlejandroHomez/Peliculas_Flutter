@@ -55,13 +55,16 @@ class _MovieSliderState extends State<MovieSliderVertical> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-              child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  controller: scrollController,
-                  scrollDirection: Axis.vertical,
-                  itemCount: widget.movies.length,
-                  itemBuilder: (_, int index) => ElasticIn(
-                      child: MovieVertical(widget.movies[index], index)))),
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              controller: scrollController,
+              scrollDirection: Axis.vertical,
+              itemCount: widget.movies.length,
+              itemBuilder: (_, int index) => ElasticIn(
+                child: MovieVertical(widget.movies[index], index),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -88,8 +91,11 @@ class MovieVertical extends StatelessWidget {
           width: double.infinity,
           height: 230,
           decoration: BoxDecoration(
-              color: MyColors.white,
-              borderRadius: BorderRadius.all(Radius.circular(20))),
+            color: MyColors.white,
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
+          ),
           margin: EdgeInsets.only(bottom: 10, left: 15, right: 15),
           child: Column(
             children: [
@@ -97,7 +103,9 @@ class MovieVertical extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _TituloMovie(movie: movie),
-                  Expanded(child: Container()),
+                  Expanded(
+                    child: Container(),
+                  ),
                   _IconFavorite(index, movie),
                   IconShare(movie),
                 ],
@@ -148,10 +156,10 @@ class MovieVertical extends StatelessWidget {
                         height: 60,
                         width: 60,
                         decoration: BoxDecoration(
-                            color: MyColors.transparent,
-                            borderRadius: BorderRadius.circular(100),
-                            border:
-                                Border.all(color: MyColors.white, width: 2)),
+                          color: MyColors.transparent,
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(color: MyColors.white, width: 2),
+                        ),
                         child: Icon(
                           Icons.play_arrow,
                           size: 35,
@@ -186,16 +194,21 @@ class _IconFavorite extends StatelessWidget {
             moviesProvider.eliminarFavoritos(movie);
           },
           child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
-              width: 35,
-              height: 35,
-              decoration: BoxDecoration(
-                  color: MyColors.icon,
-                  borderRadius: BorderRadius.all(Radius.circular(8))),
-              child: Pulse(
-                  duration: Duration(milliseconds: 400),
-                  child: Icon(FontAwesomeIcons.solidBookmark,
-                      color: MyColors.white, size: 24))),
+            margin: EdgeInsets.symmetric(horizontal: 5),
+            width: 35,
+            height: 35,
+            decoration: BoxDecoration(
+              color: MyColors.icon,
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+            ),
+            child: Pulse(
+              duration: Duration(milliseconds: 400),
+              child: Icon(FontAwesomeIcons.solidBookmark,
+                  color: MyColors.white, size: 24),
+            ),
+          ),
         );
       }
     }
@@ -205,15 +218,20 @@ class _IconFavorite extends StatelessWidget {
         moviesProvider.getFavoriteMovies(movie);
       },
       child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 5),
-          width: 35,
-          height: 35,
-          decoration: BoxDecoration(
-              color: MyColors.icon,
-              borderRadius: BorderRadius.all(Radius.circular(8))),
-          child: ElasticIn(
-              child: Icon(FontAwesomeIcons.bookmark,
-                  color: MyColors.white, size: 24))),
+        margin: EdgeInsets.symmetric(horizontal: 5),
+        width: 35,
+        height: 35,
+        decoration: BoxDecoration(
+          color: MyColors.icon,
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+        ),
+        child: ElasticIn(
+          child:
+              Icon(FontAwesomeIcons.bookmark, color: MyColors.white, size: 24),
+        ),
+      ),
     );
   }
 }
@@ -233,7 +251,10 @@ class _TituloMovie extends StatelessWidget {
         height: 40,
         width: 210,
         decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: MyColors.item))),
+          border: Border(
+            bottom: BorderSide(color: MyColors.item),
+          ),
+        ),
         child: Center(
           child: Text(
             movie.title,

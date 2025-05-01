@@ -19,12 +19,18 @@ class TopRateSerieResponse {
   int totalResults;
 
   factory TopRateSerieResponse.fromJson(String str) =>
-      TopRateSerieResponse.fromMap(json.decode(str));
+      TopRateSerieResponse.fromMap(
+        json.decode(str),
+      );
 
   factory TopRateSerieResponse.fromMap(Map<String, dynamic> json) =>
       TopRateSerieResponse(
         page: json["page"],
-        results: List<Serie>.from(json["results"].map((x) => Serie.fromMap(x))),
+        results: List<Serie>.from(
+          json["results"].map(
+            (x) => Serie.fromMap(x),
+          ),
+        ),
         totalPages: json["total_pages"],
         totalResults: json["total_results"],
       );
