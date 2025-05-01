@@ -1,0 +1,11 @@
+export 'customPainters/customs.dart';
+export 'card_swiper.dart';
+export 'casting_Cards.dart';
+export 'clasificacion.dart';
+export 'degrade.dart';
+export 'header.dart';
+export 'iconShare.dart';
+export 'movie_slider_fav.dart';
+export 'movie_slider_vertical.dart';
+export 'movie_slider.dart';
+export 'series_view.dart';

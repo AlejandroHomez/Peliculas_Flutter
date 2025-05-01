@@ -34,6 +34,8 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     compileSdkVersion 34
 
+    namespace 'com.alejandrohomez.flutterpeliculas'
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -67,23 +69,6 @@ android {
 flutter {
     source '../..'
 }
-
-afterEvaluate {
- mergeReleaseJniLibFolders.doLast {
-    def archTypes = ["arm-release", "arm64-release"]
-    archTypes.forEach { item ->
-        copy {
-        from zipTree("$flutterRoot/bin/cache/artifacts/engine/android-$item/flutter.jar")
-            include 'lib/*/libflutter.so'
-            into "$buildDir/intermediates/jniLibs/release/"
-                eachFile {
-                it.path = it.path.replaceFirst("lib/", "")
-                }
-            }
-        }
-    }
-}
-
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

@@ -1,0 +1,13 @@
+export 'pupular_response.dart';
+export 'now_playing_response.dart';
+export 'movie.dart';
+export 'genre_response.dart';
+export 'credis_response.dart';
+export 'person_response.dart';
+export 'popular_serieResponse.dart';
+export 'search_response.dart';
+export 'serie.dart';
+export 'topRate_response.dart';
+export 'topRated_Series.dart';
+export 'upcoming_response.dart';
+export 'video_movie_response.dart';

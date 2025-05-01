@@ -1,0 +1,9 @@
+export 'details.dart';
+export 'home_screen.dart';
+export 'series.dart';
+export 'inicio.dart';
+export 'videoplayer_screen.dart';
+export 'trailers.dart';
+export 'actor_screen.dart';
+export 'favorites_page.dart';
+export 'rulette_page.dart';

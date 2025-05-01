@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:peliculas_app/peliculas_app.dart';
 
 ThemeData themeData(BuildContext context) {
   return ThemeData(
@@ -11,7 +12,7 @@ ThemeData themeData(BuildContext context) {
     ),
     brightness: Brightness.light,
     primaryTextTheme: Theme.of(context).primaryTextTheme.apply(
-          bodyColor: Colors.black.withOpacity(0.6),
+          bodyColor: MyColors.black.withOpacity(0.6),
         ),
   );
 }
