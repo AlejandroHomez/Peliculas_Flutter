@@ -172,29 +172,22 @@ class _AppBarDetailsState extends State<_AppBarDetails> {
         ),
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Positioned(
-                  top: 25,
-                  child: IconButton(
-                    onPressed: () => Navigator.pop(context, 'home'),
-                    icon: Icon(
-                      Icons.reply_rounded,
-                      color: Colors.white54,
-                      size: 30,
-                    ),
+                IconButton(
+                  onPressed: () => Navigator.pop(context, 'home'),
+                  icon: Icon(
+                    Icons.reply_rounded,
+                    color: Colors.white54,
+                    size: 30,
                   ),
                 ),
-                Positioned(
-                  top: 35,
-                  right: 20,
-                  child: Transform.scale(
-                    scale: 1.2,
-                    child: IconShare(widget.movie),
-                  ),
+                Transform.scale(
+                  scale: 1.2,
+                  child: IconShare(widget.movie),
                 ),
               ],
             ),

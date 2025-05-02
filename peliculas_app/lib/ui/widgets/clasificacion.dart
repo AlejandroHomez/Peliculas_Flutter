@@ -12,19 +12,23 @@ class ClasPeliculas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int lengthGenre = genreMovie.length;
-    int primerDato = genreMovie[0];
+    int primerDato = lengthGenre < 1 ? 0 : genreMovie[0];
+
     return Container(
       padding: EdgeInsets.symmetric(vertical: 6),
       width: double.infinity,
       height: 40,
-      // color: MyColors.red,
-      child: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: lengthGenre,
-        itemBuilder: (_, int index) =>
-            CrearCategorias(genreMovie[index], lengthGenre, primerDato),
-      ),
+      child: genreMovie.length < 1
+          ? ListView.builder(
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: lengthGenre,
+              itemBuilder: (_, int index) =>
+                  CrearCategorias(genreMovie[index], lengthGenre, primerDato),
+            )
+          : Center(
+              child: Text('No hay informaciòn'),
+            ),
     );
   }
 }
