@@ -45,7 +45,7 @@ android {
         applicationId "com.alejandrohomez.peliculasyseries"
         minSdkVersion 23
         targetSdkVersion 35
-        versionCode 4
+        versionCode 1
         versionName '1.0.0'
         multiDexEnabled true
     }
