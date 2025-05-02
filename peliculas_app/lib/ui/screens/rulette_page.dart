@@ -39,20 +39,6 @@ class _RulettePageState extends State<RulettePage>
     randomCenter = random.nextInt(moviesLength);
     randomRight = random.nextInt(moviesLength);
 
-    // _animationController.addStatusListener((status) {
-    //   if (status.index == 0.8) {
-    //     print(status.index);
-    //     moviesLength = movies.length;
-
-    //     setState(() {
-    //       randomLeft = random.nextInt(moviesLength);
-    //       randomCenter = random.nextInt(moviesLength);
-    //       randomRight = random.nextInt(moviesLength);
-    //     });
-    //   }
-    //   _animationController.reset();
-    // });
-
     super.initState();
   }
 
@@ -98,7 +84,7 @@ class _RulettePageState extends State<RulettePage>
                         CardRoulette(
                           movie: leftMovie,
                           sizeHeight: 400,
-                          sizeWith: size.width * 0.135,
+                          sizeWith: size.width * 0.13,
                           isSelected: false,
                         ),
                         CardRoulette(
@@ -110,7 +96,7 @@ class _RulettePageState extends State<RulettePage>
                         CardRoulette(
                           movie: rightMovie,
                           sizeHeight: 400,
-                          sizeWith: size.width * 0.135,
+                          sizeWith: size.width * 0.13,
                           isSelected: false,
                         ),
                       ],

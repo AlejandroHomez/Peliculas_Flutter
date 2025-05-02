@@ -75,8 +75,8 @@ class ButtonsContainer extends StatelessWidget {
 
     return Container(
       margin: EdgeInsets.only(
-        left: size.width * 0.1,
-        right: size.width * 0.1,
+        left: size.width * 0.08,
+        right: size.width * 0.08,
       ),
 
       width: double.infinity,
@@ -119,7 +119,9 @@ class ButtonsContainer extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => Navigator.pushNamed(context, 'home'),
                 child: DetailsButtons(
-                    title: "Información de Peliculas", icon: Icons.movie),
+                  title: "Información de Peliculas",
+                  icon: Icons.movie,
+                ),
               ),
             ),
             TweenAnimationBuilder<double>(
@@ -171,7 +173,7 @@ class DetailsButtons extends StatelessWidget {
 
     final size = MediaQuery.of(context).size;
     return Container(
-      width: size.width * 0.7,
+      width: size.width * 0.75,
       margin: EdgeInsets.symmetric(vertical: 10),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: boxDecoration,
@@ -290,9 +292,10 @@ class _RouletteButton extends StatelessWidget {
               Text(
                 'Ruleta',
                 style: TextStyle(
-                    color: MyColors.black,
-                    fontFamily: 'CarterOne',
-                    fontSize: 12),
+                  color: MyColors.black,
+                  fontFamily: 'CarterOne',
+                  fontSize: 12,
+                ),
               )
             ],
           ),

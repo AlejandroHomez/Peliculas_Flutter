@@ -1,4 +1,4 @@
-package com.alejandrohomez.flutterpeliculas
+package com.alejandrohomez.peliculasyseries
 
 import io.flutter.embedding.android.FlutterActivity
 

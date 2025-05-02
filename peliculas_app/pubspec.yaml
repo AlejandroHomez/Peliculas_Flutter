@@ -54,4 +54,5 @@ flutter:
   assets:
     - data/genres_movies.json
     - assets/.env
+    - assets/Icon/
     - assets/

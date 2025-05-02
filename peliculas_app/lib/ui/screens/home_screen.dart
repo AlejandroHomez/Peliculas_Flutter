@@ -149,9 +149,9 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             CustomNavigatorBar(
               widgetIcon: Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Image.asset(
-                  'assets/CicleLoad.png',
+                  'assets/Icon/IconoMovies.png',
                 ),
               ),
             )
